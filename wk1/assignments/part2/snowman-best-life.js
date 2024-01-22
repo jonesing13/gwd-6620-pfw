@@ -1,6 +1,6 @@
 let grid = undefined;
-let stroke1 = prompt("enter a basic color name in lower case for the scarf!", "gray");
-let stroke2 = prompt("enter another basic color name in lower case for the hat!", "purple");
+let stroke1 = prompt("enter a basic color name in lower case for the scarf!", "teal");
+let stroke2 = prompt("enter another basic color name in lower case for the hat!", "black");
 
 function setup() {
     createCanvas(1000,800);
@@ -9,11 +9,16 @@ function setup() {
 }
 
 function draw() {
-    //background(grid);
-    // snowman legs
+    // background(grid);
+
+    // snow coloring (for snowman AND ground)
     fill("#f1f1f1");
     stroke("#d1d8e2");
     strokeWeight(20);
+    ellipse(500, 900, 1500, 500);
+
+    // snowman
+    // snowman legs
     // left side
     ellipse(380, 640, 130);
     // right side
@@ -21,8 +26,8 @@ function draw() {
     // body
     ellipse(500, 450, 350, 400);
     // scarf
-    stroke("stroke1");
-    fill("stroke1");
+    stroke(stroke1);
+    fill(stroke1);
     /* commenting out original color to enable prompt1 input/color
     fill("#70a297");
     stroke("#70a297");
@@ -37,8 +42,7 @@ function draw() {
     // hat brim
     /* commenting out original color to enable prompt2 color!
     stroke("#323c4f");
-    fill("#323c4f");
-    */
+    fill("#323c4f");*/
     stroke(stroke2);
     fill(stroke2);
     strokeWeight(50);
@@ -86,32 +90,40 @@ function draw() {
     // eye
     stroke("#161a22");
     point(730, 500);
-    // rudolph head
+    // head
     fill("#92664a");
     stroke("#92664a");
     triangle(660, 520, 750, 470, 750, 540);
     // eye
+    stroke("white");
+    strokeWeight(20);
+    point(722, 498);
     stroke("#323c4f");
+    strokeWeight(15);
     point(720, 500);
-    // rudolph body
+    // body
     fill("#92664a");
     stroke("#92664a");
     ellipse(830, 570, 170, 90);
-    // rudolph leg front 1
+    // leg front 1
     line(730, 710, 770, 550);
-    // rudolph leg front 2
+    // eg front 2
     line(760, 710, 790, 550);
-    // rudolph leg back 1
+    // eg back 1
     triangle(840, 610, 865, 600, 865, 650);
     line(870, 655, 850, 710);
-    // rudolph leg back 2
+    // leg back 2
     triangle(900, 650, 820, 550, 900, 550);
     line(900, 660, 890, 710);
-    // rudolph nose
+    // red nose
     stroke("#e02d2d");
     ellipse(640, 510, 5, 15);
     // tail
     fill("#92664a");
     stroke("#92664a");
-    triangle(900, 550, 920, 530, 915, 550);
+    triangle(910, 540, 920, 510, 900, 520);
+    stroke("white");
+    fill("white");
+    strokeWeight(5);
+    triangle(920, 540, 930, 530, 930, 510);
 }
