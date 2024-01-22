@@ -9,7 +9,7 @@ function setup() {
 }
 
 function draw() {
-    background(grid);
+    //background(grid);
     // snowman legs
     fill("#f1f1f1");
     stroke("#d1d8e2");
