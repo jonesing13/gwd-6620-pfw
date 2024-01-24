@@ -9,7 +9,7 @@
     const faveGames = [
         {
             name: "king's corners",
-            type: "cards",
+            type: "card game",
             playerCount: "3-4",
             objective: "play all the cards in your deck before all other players"
         },
@@ -23,15 +23,17 @@
             name: "mancala",
             type: "board game",
             playerCount: "2",
-            objective: "place more beads/stones in your home receptacle than your opponent's"
+            objective: "place more beads/stones in your home receptacle than your opponent"
         },
     ]
 
     // Prompt the user with a message like "I have 3 games in my collection. Pick a number between 1 and 3 and I'll tell you about that game"
-    const yourGameDescription = window.prompt("I have ", faveGames.length, "games in my collection. Pick a number between 1 and 3 and I'll tell you about that game");
-    const gamePicked = (yourGameDescription-1); //I'm trying to use the 1-3 and transpose it to 0-2? for the ordering? but this doesn't feel right.
-    console.log(faveGames[gamePicked].objective)
+    const yourGameDescription = window.prompt("I have " + faveGames.length + " games in my collection. Pick a number between 1 and 3 and I'll tell you about that game.");
     // Cast the prompt to a number (if possible)
-    // Using the plus sign as a concatenation operator, alert the user to you game. "You selected" + myGameArray[promptResponse -1 ].title + " which is a " + myGameArray[promptResponse - 1].type + " of game..." And so forth.
+        // "cast"????
+    // Using the plus sign as a concatenation operator, alert the user to your game. "You selected" + myGameArray[promptResponse -1 ].title + " which is a " + myGameArray[promptResponse - 1].type + " of game..." And so forth.
+    const gamePicked = (yourGameDescription - 1);
+
+    console.log("You selected " + faveGames[gamePicked].name + " which is a " + faveGames[gamePicked].type + " with " + faveGames[gamePicked].playerCount + " players, where the object is to " + faveGames[gamePicked].objective)
     // Add your exercise files to your git repo and commit your changes. Push to github. Upload to your MCAD hosting and share a link to that url in this discussion. Ensure that URL is accessible and functional.
 
