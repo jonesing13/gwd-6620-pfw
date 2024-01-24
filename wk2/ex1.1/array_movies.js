@@ -8,5 +8,5 @@ const yourFaveMovie = window.prompt("what is your favorite movie?")
 topGrossingMovies2023.push(yourFaveMovie)
 console.log(topGrossingMovies2023);
 // display full list of movies with toString() method
+    // console.log(toString(topGrossingMovies2023))
 // Update your github repo with this exercise and then upload your exercise to your MCAD hosting and share a link to that url in this discussion. Ensure that URL is accessible.
-console.log(toString(topGrossingMovies2023));
