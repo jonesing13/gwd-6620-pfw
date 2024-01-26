@@ -8,4 +8,5 @@ const yourFaveMovie = window.prompt("what is your favorite movie?")
 funMovies.push(yourFaveMovie)
 // display full list of movies with toString() method
 console.log(funMovies.toString());
+// console.log(funMovies.join());
 // Update your github repo with this exercise and then upload your exercise to your MCAD hosting and share a link to that url in this discussion. Ensure that URL is accessible.
