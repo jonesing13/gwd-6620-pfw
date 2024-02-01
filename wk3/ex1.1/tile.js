@@ -45,9 +45,11 @@ function createTile() {
 
 function createTile() {
     translate(0, 0);
-    noStroke();
+    stroke("#f5e5b8") // light tan outline
+    strokeWeight(5);
     fill("#f5e5b8"); // canvas color
     rect(0, 0, 200, 200);
+    noStroke();
     fill("#206d6c"); // dark teal rectangles
     rect(0, 0, 20, 80); // upper left
     rect(180, 0, 20, 80); // upper right
