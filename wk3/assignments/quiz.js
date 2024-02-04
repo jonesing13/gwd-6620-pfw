@@ -56,7 +56,7 @@ function validateQuestion() {
         // this is the feedback for 'incorrect' user input
         incorrectCount += 1;
         console.log(incorrectCount);
-        response = 'darn, that\'s not the answer we were looking for! try another question';
+        response = 'darn, that\'s not the answer we were looking for! try another question\nremember to use all lowercase letters';
         responseColor = 'yellow';
     }
     currentQuestion = nextQuestion();
@@ -68,9 +68,14 @@ function validateQuestion() {
 currentQuestion = nextQuestion();
 let message = currentQuestion.question;
 
+
 // reset incorrect count, 'restart' quiz
 function resetIncorrectCount() {
     incorrectCount = 0;
+    response = '';
+    currentQuestion = nextQuestion();
+    message = currentQuestion.question;
+    input.value ('');
 }
 
 function setup() {
@@ -85,8 +90,8 @@ function setup() {
     submitButton.position(100, 310);
     submitButton.mousePressed(validateQuestion);
     resetButton = createButton('start over');
-    resetButton.size(80, 24);
-    resetButton.position (280, 310);
+    resetButton.size(110, 24);
+    resetButton.position (94, 530);
     resetButton.mousePressed(resetIncorrectCount);
 }
 
@@ -95,9 +100,9 @@ function draw() {
     textSize(24);
     textWrap(WORD);
     text(message, 65, 150, 600); // third number sets max width to ensure textWrap works
-    fill(responseColor); // TODO this toggles my question color based on the user's response (right or wrong)...except it stopped doing that w my last update.... so... ?
+    fill(responseColor);
     text(response, 65, 320, 600);
     textSize(16);
     fill('white');
-    text('watch out! if you submit 5 wrong answers, you\'ll lose!!\nyou currently have ' + incorrectCount + ' wrong answers.', 65, 500, 600);
+    text('watch out! if you submit 5 wrong answers, you\'ll lose!!\nyou currently have ' + incorrectCount + ' wrong answers.', 65, 450, 600);
 }

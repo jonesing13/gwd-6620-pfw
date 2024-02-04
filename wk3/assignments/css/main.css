@@ -22,3 +22,9 @@ h1 {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #d29120;
 }
+
+button {
+    background-color: #d29120;
+    color: #fff;
+    font-weight: bold;
+  }
