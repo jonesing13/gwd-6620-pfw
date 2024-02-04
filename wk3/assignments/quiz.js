@@ -70,7 +70,7 @@ let message = currentQuestion.question;
 
 
 // reset incorrect count, 'restart' quiz
-function resetIncorrectCount() {
+function startOver() {
     incorrectCount = 0;
     response = '';
     currentQuestion = nextQuestion();
@@ -92,7 +92,7 @@ function setup() {
     resetButton = createButton('start over');
     resetButton.size(110, 24);
     resetButton.position (94, 530);
-    resetButton.mousePressed(resetIncorrectCount);
+    resetButton.mousePressed(startOver);
 }
 
 function draw() {
