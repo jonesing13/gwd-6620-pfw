@@ -43,8 +43,8 @@ function nextQuestion() {
 
 // validate the user's input against the 'answer'
 function validateQuestion() {
-    if (currentQuestion.answer === input.value()) {
-        // TODO ideal to transform both answer and value to lowercase
+    if (currentQuestion.answer.toLowerCase() === input.value().toLowerCase()) {
+        // TODO ideal to transform both answer and value to lowercase .toLowerCase()
         // remove correct answer from array
         quizItems = quizItems.filter(quizItemsObj => {
             return currentQuestion.answer !== quizItemsObj.answer;
@@ -67,7 +67,6 @@ function validateQuestion() {
 }
 currentQuestion = nextQuestion();
 let message = currentQuestion.question;
-
 
 // reset incorrect count, 'restart' quiz
 function startOver() {
