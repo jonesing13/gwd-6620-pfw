@@ -18,7 +18,7 @@ function setup() {
 
 function draw() {
     // fill('purple');
-    FileList(myColors[colorIndex]);
+    fill(myColors[colorIndex]);
     noStroke();
     //rect(150, 150, 50, 50);
     rect(purpleBox.x, purpleBox.y, purpleBox.width, purpleBox.height); // this is gonna be the same as the static stuff we had before, but an ITERATION
