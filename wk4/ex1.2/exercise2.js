@@ -12,8 +12,8 @@ function setup() {
 
 function draw() {
     background('lightblue');
-    drawShape();
-    theBox.y--;
+    drawShape(); 
+    theBox.y--; // since draw() is a loop, this moves the shape up on the y-axis by one each iteration
     if(theBox.y < -theBox.height) { // my square is moving up, so I used the distance of the height, i.e. negative height 
         noLoop();
         text('your score was ' + mouseClicks, 230, 240);
@@ -26,7 +26,7 @@ function mousePressed() {
      if( // check if mouse click is inside the box
         (mouseX >= theBox.x && mouseX <= theBox.x + theBox.width) && (mouseY >= theBox.y && mouseY <= theBox.y + theBox.height)
     ) {
-        mouseClicks++;
+        mouseClicks++; // count successful mouse clicks
         console.log('you hit the box!', mouseClicks);
     } 
 }
