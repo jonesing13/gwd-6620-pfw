@@ -2,6 +2,7 @@ let startingX = 24;
 let startingY = 200;
 const cardWidth = 120;
 const cardHeight = 120;
+const gridGap = 16;
 
 /*
 COLORS
@@ -13,12 +14,15 @@ dog house red #ea191e
 */
 
 function setup() {
-    createCanvas(848, 640);
+    var cnv = createCanvas(848, 640);
+    var x = (windowWidth - width) / 2;
+    var y = (windowHeight - height) / 2;
+    cnv.position(x, y);
     background('#95d0fc');
 }
 
 function draw() {
-    noStroke();
+    stroke('#ffffff');
     noLoop(); // doing my own for loops!
     rect(startingX, startingY, cardWidth, cardHeight); // allows for 6 colums at 120w w 16px gap/gutter. using same dimension for height cause my images are squares. 408h needed for the 3 rows (but this can allow for additional space for title and score copy, as well as padding at the bottom of the canvas for ~aesthetics~)
 
@@ -27,12 +31,13 @@ function draw() {
     for(let rows = 0; rows < 3; rows++) {
         // inner loop handles columns
         for(let columns = 0; columns < 6; columns++) { 
+            fill(255, 220, 23);
             rect(startingX, startingY, cardWidth, cardHeight);
             // every iteration, move startingX by my desired grid
-            startingX += 136; // x because this inner loop handles columns
+            startingX += (cardWidth + gridGap); // x because this inner loop handles columns
         }
         // every iteration, move startingY, by my desired grid
-        startingY += 136; // y because this loop handles rows
+        startingY += (cardHeight + gridGap); // y because this loop handles rows
         startingX = 24; // reset X so new rows line up at the "origin" again
     }
 }
