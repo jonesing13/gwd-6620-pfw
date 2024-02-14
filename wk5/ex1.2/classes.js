@@ -1,6 +1,16 @@
 // BIG DISCLAIMER: This is ES6. That means this will work fine on modern browsers like Chrome or Firefox or even Edge. This will not work on any version of Internet Explorer or old browser versions. You can see compatibility here: https://caniuse.com/#feat=es6-class
 
 // Start a new p5.js project.
+function setup() {
+    createCanvas(600,400);
+    background(200);
+}
+function draw() {
+    noFill();
+    stroke('cornflowerblue');
+    strokeWeight(5);
+    rect(10, 10, 75, 75);
+}
 // Create a simple outline shape.
 // Convert it to a class.
 // In the constructor, set the shape's x and y coordinates as class properties (a variable that is specific to the class).

@@ -9,17 +9,17 @@ let cardback;
 let cardfaceArray = []; // an empty array
 
 function preload() {
-    cardback = loadImage('../images/snoopy_doghouse_400x400.jpg')
+    cardback = loadImage('../images/snoopy_doghouse_112x112.png')
     cardfaceArray = [
-        loadImage('../images/peanuts_charlie-brown_400x400.jpg'),
-        loadImage('../images/peanuts_franklin2_400x400.jpg'),
-        loadImage('../images/peanuts_linus_400x400.jpg'),
-        loadImage('../images/peanuts_lucy_400x400.jpg'),
-        loadImage('../images/peanuts_marcie_400x400.jpg'),
-        loadImage('../images/peanuts_peppermint-patty_400x400.jpg'),
-        loadImage('../images/peanuts_pigpen_400x400.jpg'),
-        loadImage('../images/peanuts_sally-brown_400x400.jpg'),
-        loadImage('../images/peanuts_schroeder_400x400.jpg')
+        loadImage('../images/peanuts_charlie-brown_112x112.png'),
+        loadImage('../images/peanuts_franklin2_112x112.png'),
+        loadImage('../images/peanuts_linus_112x112.png'),
+        loadImage('../images/peanuts_lucy_112x112.png'),
+        loadImage('../images/peanuts_marcie_112x112.png'),
+        loadImage('../images/peanuts_peppermint-patty_112x112.png'),
+        loadImage('../images/peanuts_pigpen_112x112.png'),
+        loadImage('../images/peanuts_sally-brown_112x112.png'),
+        loadImage('../images/peanuts_schroeder_112x112.png')
     ];
 }
 
@@ -78,13 +78,13 @@ class Card {
             fill('#ffdc17');
             noStroke();
             rect(this.x, this.y, this.width, this.height, 8) // final property is border radius
-            image(cardback, this.x+4, this.y+4, 112, 112); // show cardback
+            image(cardback, this.x + 4, this.y + 4); // show cardback
         } else {
             // draw a white box
             fill('#fff');
             noStroke();
             rect(this.x, this.y, this.width, this.height, 8) // final property is border radius
-            image(this.cardfaceImg, this.x+4, this.y+4, 112, 112); // show image for memeory game
+            image(this.cardfaceImg, this.x + 4, this.y + 4); // show image for memeory game
         }
         
     }
