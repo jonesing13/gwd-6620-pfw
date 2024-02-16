@@ -1,16 +1,20 @@
 let outline;
 let shapes = [];
 let totalShapes = 20;
+let colors = ['pink', 'orange', 'lightyellow', 'lightgreen', 'cornflowerblue'];
+
+const randomNum = Math.floor(Math.random() * colors.length);
 
 function setup() {
     createCanvas(600,400);
     outline = new Outline();
     for(let i = 0; i < totalShapes ; i++) { // create an array of outlines
         shapes[i] = new Outline();
-    }
+    }    
 }
 function draw() {
-    background('cornflowerblue');
+    background(colors[randomNum]);
+
     for(let j = 0; j < shapes.length; j++) { // draw (and shake) all my Outlines from my array
         shapes[j].shake();
         shapes[j].show();
