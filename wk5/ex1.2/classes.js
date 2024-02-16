@@ -1,21 +1,38 @@
-// BIG DISCLAIMER: This is ES6. That means this will work fine on modern browsers like Chrome or Firefox or even Edge. This will not work on any version of Internet Explorer or old browser versions. You can see compatibility here: https://caniuse.com/#feat=es6-class
+let outline;
+let shapes = [];
+let totalShapes = 20;
 
-// Start a new p5.js project.
 function setup() {
     createCanvas(600,400);
-    background(200);
+    outline = new Outline();
+    for(let i = 0; i < totalShapes ; i++) { // create an array of outlines
+        shapes[i] = new Outline();
+    }
 }
 function draw() {
-    noFill();
-    stroke('cornflowerblue');
-    strokeWeight(5);
-    rect(10, 10, 75, 75);
+    background('cornflowerblue');
+    for(let j = 0; j < shapes.length; j++) { // draw (and shake) all my Outlines from my array
+        shapes[j].shake();
+        shapes[j].show();
+    }
 }
-// Create a simple outline shape.
-// Convert it to a class.
-// In the constructor, set the shape's x and y coordinates as class properties (a variable that is specific to the class).
-// Create a method (a class-specific function)  that renders the shape with the class properties (probably something like this.x andn this.y—you may also want to use class properties with width and height). 
-// Create a method that gives the shape some sort of movement.
-// Use a for loop in the draw function to draw a number of instances of your class on the canvas.
 
-// This video (while not me) does a good job of demonstrating the process. Parenthetically, this Youtube channel has some awesome p5 tutorials. https://youtu.be/T-HGdc8L-7w
+class Outline { // class for an outline of a sqaure that will move randomly and be colored randomly
+    constructor() { // outline of a square
+        this.x = random(50, 550); // a random number between 50 and 550 (to try to make the shape start on the canvas and stay there for a few moves)
+        this.y = random(50, 350); // a random number between 50 and 350 (to try to make the shape start on the canvas and stay there for a few moves)
+        this.width = random(0, 100);
+        this.height = random(0, 100);
+        this.color = random(0, 255); // a random number for greyscale color selection
+    }
+    shake() { // randomly adjust the x- and y- coords
+        this.x = this.x + random(-3, 3);
+        this.y = this.y + random(-2, 2);    
+    }
+    show() { // create the shape
+        noFill();
+        stroke(this.color);
+        strokeWeight(5);
+        rect(this.x, this.y, this.width, this.height);
+    }
+}

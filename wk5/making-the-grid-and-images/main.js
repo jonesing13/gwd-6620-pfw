@@ -33,8 +33,8 @@ function setup() {
     for (let z = 0; z < 9; z++) { // loop thru the # of cards I have
         const randomIndex = floor(random(cardfaceArray.length));
         const face = cardfaceArray[randomIndex];
-        selectedFaces.push();
-        selectedFaces.push(); // pushing twice cause we need two copies of the image in our array
+        selectedFaces.push(face);
+        selectedFaces.push(face); // pushing twice cause we need two copies of the image in our array
         // and because we don't want to select the card again,
         cardfaceArray.splice(randomIndex, 1);
     }
