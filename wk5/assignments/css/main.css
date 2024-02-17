@@ -9,7 +9,7 @@ dog house red #ea191e
 
 html {
     box-sizing: border-box;
-    background-color: #95d0fc;
+    background-color: #ffdc17;
 }
   
 *,
@@ -20,5 +20,7 @@ html {
 
 body {
     margin: 40;
-    padding: 40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -32,9 +32,9 @@ function preload() {
 
 function setup() {
     var cnv = createCanvas(848, 760);
-    var x = (windowWidth - width) / 2;
-    var y = (windowHeight - height) / 2;
-    cnv.position(x, y);
+    // var x = (windowWidth - width) / 2;
+    // var y = (windowHeight - height) / 2;
+    // cnv.position(x, y);
     let selectedFaces = [];
     for (let z = 0; z < 9; z++) { // loop thru the # of cards I have
         const randomIndex = floor(random(cardfaceArray.length));
@@ -62,19 +62,19 @@ function setup() {
 
 // take advantage of 'draw' function to let us cycle
 function draw() {
-    background('#96cefc');
-    fill('white');
+    background('#ffdc17');
+    fill('black');
     // TODO different type face?
     textSize(56);
     text('A Peanuts Memory Game', 100, 120);
     // condition -- user wins, got all matches
     if (gameState.numMatched === gameState.totalPairs) {
         // TODO different type face?
-        textSize(72);
-        text('You\'re a winner, baby!', 70, 724);
+        textSize(48);
+        text('You\'re not a quitter, you\'re a winner!', 48, 700);
         // show a button so user can restart
         let buttonReset = createButton('Play again');
-        buttonReset.position(392, 208);
+        buttonReset.position(448, 180);
         // TODO RESET GAME ON BUTTON CLICK
         noLoop();
     }
@@ -90,7 +90,7 @@ function draw() {
     gameState.flippedCards.length = 0;
     // reset waiting so they can interact w the board again
     gameState.waiting = false;
-    fill('white');
+    fill('black');
     // TODO different type face?
     textSize(20);
     text('Attempts: ' + gameState.attempts, 370, 172);
@@ -161,7 +161,7 @@ class Card {
             image(this.cardfaceImg, this.x + 4, this.y + 4); 
         } else {
             // when card is 'down' show cardback
-            fill('#ffdc17');
+            fill('#95d0fc');
             noStroke();
             rect(this.x, this.y, this.width, this.height, 8) // final property is border radius
             // show 'generic' cardback image
