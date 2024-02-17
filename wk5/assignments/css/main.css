@@ -1,0 +1,24 @@
+/*
+COLORS
+
+woodstock yellow #ffdc17, #ffdb18
+sky blue #95d0fc
+grass #909710
+dog house red #ea191e
+*/
+
+html {
+    box-sizing: border-box;
+    background-color: #95d0fc;
+}
+  
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 40;
+    padding: 40;
+}

@@ -38,6 +38,7 @@ function setup() {
         // and because we don't want to select the card again,
         cardfaceArray.splice(randomIndex, 1);
     }
+    selectedFaces = shuffleArray(selectedFaces); // set face of flipped card to random/shuffled image
     for (let j = 0; j < 3; j++) { // make 3 rows of cards
         for (let i = 0; i < 6; i++) { // make 6 columns of cards
             const faceImage = selectedFaces.pop(); // remember, .pop() RETURNS the item it removes
@@ -109,4 +110,20 @@ class Card {
         }
         this.show();
     }
+}
+
+// function to randomize/shuffle cards
+function shuffleArray (array) {
+    let counter = array.length;
+    while (counter > 0) {
+        // pick random index
+        const shuffleIndex = Math.floor(Math.random() * counter); 
+        // decrease counter by 1
+        counter--;
+        // swap the last element with i
+        const temp = array[counter];
+        array[counter] = array[shuffleIndex];
+        array[shuffleIndex] = temp;
+    }
+    return array;
 }
