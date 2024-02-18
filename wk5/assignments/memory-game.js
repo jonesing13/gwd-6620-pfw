@@ -33,7 +33,7 @@ function preload() {
 }
 
 function gameReset() {
-    let cards = [];
+    cards = [];
     gameState = {
         totalPairs: 9,
         flippedCards: [],
@@ -41,8 +41,7 @@ function gameReset() {
         attempts: 0,
         waiting: false
     }
-    let cardback;
-    let cardfaceArray = [];
+    cardfaceArray = [];
 }
 
 function setup() {
