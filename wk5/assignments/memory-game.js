@@ -1,4 +1,6 @@
 const gridGap = 16;
+const cardWidth = 120;
+const cardHeight = 120;
 const DOWN = 'down'; // just a convenience later on, so we don't have to type ''
 const UP = 'up'; // just a convenience later on, so we don't have to type ''
 let startingX = 24;
@@ -30,6 +32,19 @@ function preload() {
     ];
 }
 
+function gameReset() {
+    let cards = [];
+    gameState = {
+        totalPairs: 9,
+        flippedCards: [],
+        numMatched: 0,
+        attempts: 0,
+        waiting: false
+    }
+    let cardback;
+    let cardfaceArray = [];
+}
+
 function setup() {
     var cnv = createCanvas(848, 760);
     // var x = (windowWidth - width) / 2;
@@ -52,9 +67,9 @@ function setup() {
         for (let i = 0; i < 6; i++) { 
             const faceImage = selectedFaces.pop(); // remember, .pop() RETURNS the item it removes
             cards.push(new Card(startingX, startingY, faceImage));
-            startingX += 136;
+            startingX += cardWidth + gridGap;
         }
-        startingY += 136;
+        startingY += cardHeight + gridGap;
         // reset x-position to start a new row
         startingX = 24; 
     }
@@ -64,18 +79,17 @@ function setup() {
 function draw() {
     background('#ffdc17');
     fill('black');
-    // TODO different type face?
+    var x = windowWidth / 2;
     textSize(56);
     text('A Peanuts Memory Game', 100, 120);
     // condition -- user wins, got all matches
     if (gameState.numMatched === gameState.totalPairs) {
-        // TODO different type face?
         textSize(48);
-        text('You\'re not a quitter, you\'re a winner!', 48, 700);
+        text('You\'re not a quitter, you\'re a winner!', 48, 200);
         // show a button so user can restart
         let buttonReset = createButton('Play again');
-        buttonReset.position(448, 180);
-        // TODO RESET GAME ON BUTTON CLICK
+        buttonReset.position(x, 400);
+        button.mousePressed(gameReset); // call gameReset function
         noLoop();
     }
     for (let l = 0; l < cards.length; l++) {
@@ -91,7 +105,6 @@ function draw() {
     // reset waiting so they can interact w the board again
     gameState.waiting = false;
     fill('black');
-    // TODO different type face?
     textSize(20);
     text('Attempts: ' + gameState.attempts, 370, 172);
     text('Matches: ' + gameState.numMatched, 372, 200);
