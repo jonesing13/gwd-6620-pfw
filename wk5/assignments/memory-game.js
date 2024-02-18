@@ -16,7 +16,9 @@ const gameState = {
 }
 let cardback;
 let cardfaceArray = []; // an empty array
+let peanutsFont;
 
+// load images, font
 function preload() {
     cardback = loadImage('../images/snoopy_doghouse_112x112.png')
     cardfaceArray = [
@@ -30,6 +32,7 @@ function preload() {
         loadImage('../images/peanuts_sally-brown_112x112.png'),
         loadImage('../images/peanuts_schroeder_112x112.png')
     ];
+    peanutsFont = loadFont('fonts/PEANUTS_.ttf');
 }
 
 function gameReset() {
@@ -80,14 +83,16 @@ function draw() {
     fill('black');
     var x = windowWidth / 2;
     textSize(56);
-    text('A Peanuts Memory Game', 100, 120);
+    textFont(peanutsFont);
+    text('A Peanuts Memory Game', 70, 120);
     // condition -- user wins, got all matches
     if (gameState.numMatched === gameState.totalPairs) {
         textSize(48);
-        text('You\'re not a quitter, you\'re a winner!', 48, 200);
+        text('You\'re not a quitter,\n', 170, 300);
+        text('you\'re a winner!', 250, 360);
         // show a button so user can restart
         let buttonReset = createButton('Play again');
-        buttonReset.position(x, 400);
+        buttonReset.position(x - gridGap * 2, 550);
         button.mousePressed(gameReset); // call gameReset function
         noLoop();
     }
@@ -105,6 +110,7 @@ function draw() {
     gameState.waiting = false;
     fill('black');
     textSize(20);
+    textFont('Arial');
     text('Attempts: ' + gameState.attempts, 370, 172);
     text('Matches: ' + gameState.numMatched, 372, 200);
 }
