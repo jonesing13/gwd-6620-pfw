@@ -71,14 +71,15 @@ function draw() {
     fill('black');
     var x = windowWidth / 2;
     textSize(56);
+    textAlign(CENTER);
     // textFont(peanutsFont);
-    text('A Peanuts Memory Game', 70, 120);
+    text('A Peanuts Memory Game', 424, 120);
     // condition -- user wins, got all matches
     if (gameState.numMatched === gameState.totalPairs) {
         cards = [];
         textSize(48);
-        text('You\'re not a quitter,\n', 170, 300);
-        text('you\'re a winner!', 250, 360);
+        text('You\'re not a quitter,\n', 424, 300);
+        text('you\'re a winner!', 424, 360);
         noLoop();
     }
     for (let l = 0; l < cards.length; l++) {
@@ -94,10 +95,11 @@ function draw() {
     // reset waiting so they can interact w the board again
     gameState.waiting = false;
     fill('black');
+    textAlign(CENTER);
     textSize(20);
     // textFont('Arial');
-    text('Attempts: ' + gameState.attempts, 370, 172);
-    text('Matches: ' + gameState.numMatched, 374, 200);
+    text('Attempts: ' + gameState.attempts, 424, 172);
+    text('Matches: ' + gameState.numMatched, 424, 200);
 }
 
 // mouse detection to flip the cards
@@ -106,7 +108,7 @@ function mousePressed() {
     if (gameState.waiting) {
         return;
     }
-    for (let k=0; k < cards.length; k++) {
+    for (let k = 0; k < cards.length; k++) {
         // first, check if there are 2 cards flipped, then check if the card was hit
         if(gameState.flippedCards.length < 2 && cards[k].didHit(mouseX, mouseY)) {
             console.log('flipped', cards[k]);
