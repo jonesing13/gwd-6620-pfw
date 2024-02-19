@@ -32,7 +32,7 @@ function preload() {
         loadImage('../images/peanuts_sally-brown_112x112.png'),
         loadImage('../images/peanuts_schroeder_112x112.png')
     ];
-    peanutsFont = loadFont('fonts/PEANUTS_.ttf');
+    peanutsFont = loadFont('fonts/peanutsFont.ttf');
 }
 
 function setup() {
