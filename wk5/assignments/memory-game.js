@@ -75,6 +75,7 @@ function draw() {
     text('A Peanuts Memory Game', 70, 120);
     // condition -- user wins, got all matches
     if (gameState.numMatched === gameState.totalPairs) {
+        cards = [];
         textSize(48);
         text('You\'re not a quitter,\n', 170, 300);
         text('you\'re a winner!', 250, 360);
@@ -96,7 +97,7 @@ function draw() {
     textSize(20);
     textFont('Arial');
     text('Attempts: ' + gameState.attempts, 370, 172);
-    text('Matches: ' + gameState.numMatched, 372, 200);
+    text('Matches: ' + gameState.numMatched, 374, 200);
 }
 
 // mouse detection to flip the cards
