@@ -35,18 +35,6 @@ function preload() {
     peanutsFont = loadFont('fonts/PEANUTS_.ttf');
 }
 
-function gameReset() {
-    cards = [];
-    gameState = {
-        totalPairs: 9,
-        flippedCards: [],
-        numMatched: 0,
-        attempts: 0,
-        waiting: false
-    }
-    cardfaceArray = [];
-}
-
 function setup() {
     var cnv = createCanvas(848, 760);
     // var x = (windowWidth - width) / 2;
@@ -90,10 +78,6 @@ function draw() {
         textSize(48);
         text('You\'re not a quitter,\n', 170, 300);
         text('you\'re a winner!', 250, 360);
-        // show a button so user can restart
-        let buttonReset = createButton('Play again');
-        buttonReset.position(x - gridGap * 2, 550);
-        button.mousePressed(gameReset); // call gameReset function
         noLoop();
     }
     for (let l = 0; l < cards.length; l++) {
