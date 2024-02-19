@@ -16,7 +16,7 @@ const gameState = {
 }
 let cardback;
 let cardfaceArray = []; // an empty array
-let peanutsFont;
+var peanutsFont;
 
 // load images, font
 function preload() {
@@ -32,7 +32,7 @@ function preload() {
         loadImage('../images/peanuts_sally-brown_112x112.png'),
         loadImage('../images/peanuts_schroeder_112x112.png')
     ];
-    // peanutsFont = loadFont('fonts/PEANUTS_.ttf');
+    peanutsFont = loadFont('fonts/PEANUTS_.ttf');
 }
 
 function setup() {
@@ -72,7 +72,7 @@ function draw() {
     var x = windowWidth / 2;
     textSize(56);
     textAlign(CENTER);
-    // textFont(peanutsFont);
+    textFont(peanutsFont);
     text('A Peanuts Memory Game', 424, 120);
     // condition -- user wins, got all matches
     if (gameState.numMatched === gameState.totalPairs) {
@@ -80,6 +80,8 @@ function draw() {
         textSize(48);
         text('You\'re not a quitter,\n', 424, 300);
         text('you\'re a winner!', 424, 360);
+        var resetButton = createButton('Play Again', 200, 500);
+        resetButton.mousePressed(gameReset);
         noLoop();
     }
     for (let l = 0; l < cards.length; l++) {
@@ -97,9 +99,13 @@ function draw() {
     fill('black');
     textAlign(CENTER);
     textSize(20);
-    // textFont('Arial');
+    textFont('Arial');
     text('Attempts: ' + gameState.attempts, 424, 172);
     text('Matches: ' + gameState.numMatched, 424, 200);
+}
+
+function gameReset() {
+    window.location.reload(true);
 }
 
 // mouse detection to flip the cards
