@@ -32,7 +32,7 @@ function preload() {
         loadImage('../images/peanuts_sally-brown_112x112.png'),
         loadImage('../images/peanuts_schroeder_112x112.png')
     ];
-    peanutsFont = loadFont('fonts/PEANUTS_.ttf');
+    // peanutsFont = loadFont('fonts/PEANUTS_.ttf');
 }
 
 function setup() {
@@ -71,7 +71,7 @@ function draw() {
     fill('black');
     var x = windowWidth / 2;
     textSize(56);
-    textFont(peanutsFont);
+    // textFont(peanutsFont);
     text('A Peanuts Memory Game', 70, 120);
     // condition -- user wins, got all matches
     if (gameState.numMatched === gameState.totalPairs) {
@@ -95,7 +95,7 @@ function draw() {
     gameState.waiting = false;
     fill('black');
     textSize(20);
-    textFont('Arial');
+    // textFont('Arial');
     text('Attempts: ' + gameState.attempts, 370, 172);
     text('Matches: ' + gameState.numMatched, 374, 200);
 }
