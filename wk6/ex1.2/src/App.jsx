@@ -1,15 +1,5 @@
 import './App.css'
 
-/* function App() {
-  const happy = true;
-  return (
-    <>
-      Hi this is a React App that I made!
-      {happy && (<div>Yay!</div>)}
-    </>
-  )
-} */
-
 function App() {
   const greeting = 'Hello, world!'
   const thisString = 'this'
