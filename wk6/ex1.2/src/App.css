@@ -17,3 +17,8 @@
 .emphatic {
   font-style: italic;
 }
+
+.footnote {
+  padding-top: 3rem;
+  font-size: x-small;
+}

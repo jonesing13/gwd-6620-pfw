@@ -33,6 +33,9 @@ function App() {
           <p class="emphatic">{oneMoreString}</p>
         </div>
       </div>
+      <div class="footnote">
+        <p>OK, byeeee &#x1F44B;</p>
+      </div>
     </>
   )
 }
