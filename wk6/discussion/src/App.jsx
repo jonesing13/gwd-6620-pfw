@@ -9,6 +9,9 @@
 
 // NOTE: make your my-test-react folder at the wk6 folder level. in terminal > new terminal, use the command 'cd wk6'
 // open that folder in particular in vs code using command 'code .' once you're in the folder you wanna be in
+// use command
+// npm create vite@latest <folder name>
+// NOTE: if the folder already exists, it'll do the create in the existing folder; if it doesn't it'll CREATE that folder too
 
 
 import Header from "./Header";
