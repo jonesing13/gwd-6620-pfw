@@ -11,7 +11,7 @@ function App() {
     "Llamas eat 7 meals a day, like their good friends the hobbits",
     "Llamas are great pack animals, but if you try to overload them with too much weight, they will likely lie down or simply refuse to move",
     "The average llama is between 5 feet 6 inches and 5 feet 9 inches tall",
-    "LLama poop has almost no oder and makes for an eco-friendly fertilizer"
+    "LLama poop has almost no odor and makes for an eco-friendly fertilizer"
   ]
   // map array items into a list for display purposes
   const listItems = llamaFacts.map((factoid) => <li key={factoid}>{factoid}</li>)
