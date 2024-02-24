@@ -1,6 +1,7 @@
 import './App.css'
 
 function App() {
+  // create array of facts
   const llamaFacts = [
     "Llamas have a reputation for spitting",
     "The collective noun for llamas (i.e. what you call a group of llamas) is 'herd'",
@@ -12,8 +13,8 @@ function App() {
     "The average llama is between 5 feet 6 inches and 5 feet 9 inches tall",
     "LLama poop has almost no oder and makes for an eco-friendly fertilizer"
   ]
+  // map array items into a list for display purposes
   const listItems = llamaFacts.map((factoid) => <li key={factoid}>{factoid}</li>)
-  // TODO: add a ternary condition https://react.dev/learn/conditional-rendering#conditional-ternary-operator--
   return (
     <>
       <h1>
