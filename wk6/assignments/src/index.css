@@ -4,15 +4,6 @@
   font-weight: 400;
 }
 
-a {
-  font-weight: 500;
-  color: #26331c;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #344329;
-}
-
 body {
   margin: 0;
   display: flex;
@@ -26,7 +17,11 @@ h1 {
   line-height: 1.1;
 }
 
-ul, li {
-  margin-left: 1rem;
+ul {
+  padding-left: 4rem;
   list-style: outside;
+}
+
+li {
+  padding-left: .5em;
 }
