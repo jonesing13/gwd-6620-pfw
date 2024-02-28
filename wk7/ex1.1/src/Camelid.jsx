@@ -4,7 +4,7 @@ function Camelid({img, name, funFact}) {
 
     return (
         <div className="card">
-            <img src={img} className="img" />
+            <div className="img">{img}</div>
             <h1>{name}</h1>
             <p>{funFact}</p>
         </div>

@@ -10,3 +10,7 @@
   max-width: 60%;
   padding: 2rem;
 }
+
+.img {
+  max-width: 100px;
+}
