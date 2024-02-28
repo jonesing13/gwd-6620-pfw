@@ -1,7 +1,10 @@
-function Camelid({name, funFact, img}) {
+import './camelid.css'
+
+function Camelid({img, name, funFact}) {
 
     return (
-        <div>
+        <div className="card">
+            <img src={img} className="img" />
             <h1>{name}</h1>
             <p>{funFact}</p>
         </div>
