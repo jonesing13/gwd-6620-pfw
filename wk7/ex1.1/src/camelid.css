@@ -1,3 +1,6 @@
+/*
+this styling isn't working so did it directly in the element on App.jsx camelidArray item
+*/
 .img {
     width: 100px;
     height: 100px;
@@ -8,5 +11,5 @@
     border: 1px solid gray;
     margin-bottom: 2rem;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #f1f1f1;
 }

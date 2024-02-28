@@ -6,8 +6,8 @@ import './app.css'
 
 function App() {
   const camelidArray = [
-    {name: "Llama", funFact: "Fast llamas are referred to as 'llamaghinis'", img: <img src={llamaImage} alt="Four llamas looking at the camera." />},
-    {name: "Alpaca", funFact: "Alpacas prefer to sing alpacapella", img: <img src={alpacaImage} alt="A group of six alpacas staring in all different directions." />}
+    {name: "Llama", funFact: "Fast llamas are referred to as 'llamaghinis'.", img: <img src={llamaImage} width={150} height={100} alt="Four llamas looking at the camera." />},
+    {name: "Alpaca", funFact: "Alpacas prefer to sing alpacapella.", img: <img src={alpacaImage} width={150} height={104} alt="A group of six alpacas staring in all different directions." />}
   ]
   return (
     <>
