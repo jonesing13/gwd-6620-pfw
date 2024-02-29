@@ -1,0 +1,13 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+ul {
+  padding-left: 2rem;
+}
+
+li {
+  padding-left: 1rem;
+}
