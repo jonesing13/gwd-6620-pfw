@@ -2,37 +2,6 @@ import Block from './Block'
 import './App.css'
 
 /*
-7.A | ✳️ Assignment 7: Show and Tell Collection
-No unread replies. No replies.
-
-Estimated time: up to 4 hours
-INSTRUCTIONS
-
-Create a list displaying a collection of items with conditional formatting.
-
-Select an item that you collect or would like to collect (baseball cards, European high-performance cars, Power Ranger figures; it can literally be anything). Create an POJO (plain old javascript object) that represents one unit of that collection. For example, if I was selecting retro video game consoles, my first POJO would look like this:
-
-
-    {
-      name: "Nintendo Entertainment System",
-      nickname: "NES",
-      manufacturer: "Nintendo"
-      activeYears: [1983, 1990],
-      description: "Released July 15, 1983, the Nintendo Entertainment System (NES) is an 8-bit video game console released by Nintendo in North America, South America, Europe, Asia, Oceania and Africa and was Nintendo's first home video game console released outside Japan. In Japan, it is known as the "Family Computer" (or "Famicom", as it is commonly abbreviated)."
-    }
-
-For this assignment, your collection object should have 3 to 5 properties. Create an array of 5  or more of these objects and in the App.jsx file as a variable. 
-
-          const consoles = [
-            {...}, // this would be the NES object
-            {...}, //  and this might be the N64
-          ]
-
-
-Create a new JSX file to be used as a row for each one of your collection items. Name the file with a capital letter that makes sense for you collection. For example, if your collection is made of Baseball Cards, you may want to name the row component "Card.jsx". For my example, I'll use the name "Console.jsx". 
-
-Create a function in your component that matches your file name. So mine would be function Console(props) {...}. Create your component to display 1 item in your collection. 
-
 Use the array you just made to create a list of your collection using map to render each item as one row of your list using your newly created row component. You may use tables, lists or even stacked divs when displaying your collection. Each row component should display at least 4 properties from your collection objects.
 
 If using a table, you should make an appropriate row with column headings as well as an appropriate page heading for the collection in general.
@@ -63,38 +32,60 @@ function App() {
   const blockArray = [
     {
       name: "Bonsai Tree",
+      id: 1,
+      image: "./bonsai-tree_product_image_267x400.jpg",
       itemNumber: 10281,
       pieces: 878,
+      description: "Designed especially for adults, this rewarding project includes 878 pieces, creating a beautiful display piece measuring over 7 in. (18 cm) high.",
       starRating: "4.5/5",
-      price: "49.99"
+      price: "49.99",
+      status: "Active"
     },
     {
       name: "Wildflower Bouquet",
+      id: 2,
+      image: "./wildflower-bouquet_product_image_267x400.jpg",
       itemNumber: 10313,
       pieces: 939,
+      description: "Immerse yourself in color! The building set provides an immersive building experience for nature-lovers and budding florists.",
       starRating: "5/5",
-      price: "59.99"
+      price: "59.99",
+      status: "Active"
     },
     {
       name: "Orchid",
+      id: 3,
+      image: "./orchid_product_image_263x400.jpg",
       itemNumber: 10311,
       pieces: 608,
+      description: "Build your own orchid display and enjoy a rewarding project for adults as you build a joyful and elegant orchid decor piece for your home or office.",
       starRating: "5/5",
-      price: "49.99"
+      price: "49.99",
+      status: "Active"
     },
     {
       name: "Bird of Paradise",
+      id: 4,
+      image: "./bird-of-paradise_product_image_267x400.jpg",
       itemNumber: 10289,
       pieces: 1173,
+      description: "Build a Bird of Paradise for your collection. This build features a repositionable flower model with unique elements for the stamens. (Retired December 2023.)",
       starRating: "4.5/5",
-      price: "99.99"
+      price: "99.99",
+      status: "Retired"
     }
   ]
-
+  // TODO convert this to .map to show all items in the list
+  // utilize a "retired" class for bird of paradise
   return (
     <>
-      <h1>LEGO&reg; Bonsai Collection</h1>
-      <Block blockArray={blockArray} />
+    <div className="header">
+      <h1>My LEGO<sup>&reg;</sup> Botanical Collection</h1>
+    </div>
+    <div className="body">
+      <Block blockArray={blockArray} className={blockArray.status && "retired"}/>
+    </div>
+    <div className="footer"></div>
     </>
   )
 }

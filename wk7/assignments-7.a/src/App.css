@@ -1,0 +1,69 @@
+
+div {
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  margin: 0 auto;
+  padding: 2rem 4rem;
+  max-width: 1040px;
+}
+
+.header {
+  background-color: #ffd400;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 1rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+h2 {
+  margin-bottom: 0;
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+
+/*
+TODO: move the .product and .product-image styles to a new .css relating to the .jsx file they're in
+*/
+.product {
+  display: flex;
+  border: 1px solid #c1c1c1;
+  margin-bottom: 4rem;
+  padding: 2rem;
+}
+
+.product-image {
+  padding-top: 4rem;
+  width: 100%;
+  max-width: 267px;
+  height: auto;
+}
+
+.product-details {
+  padding-left: 4rem;
+}
+
+ul {
+  padding-left: 0;
+  margin-top: .25rem;
+}
+
+li {
+  list-style-type: none;
+  padding-left: 0;
+  max-width: 560px;
+  padding-bottom: .5rem;
+}
+
+.footer {
+  padding: 4rem;
+}
