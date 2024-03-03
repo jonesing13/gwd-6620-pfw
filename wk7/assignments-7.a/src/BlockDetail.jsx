@@ -1,4 +1,4 @@
-function BlockDetail ({name, id, image, itemNumber, pieces, description, starRating, price, status}) {
+function BlockDetail ({name, image, pieces, description, starRating, price, status}) {
     // TODO use .map() here?
     // nested .map()?
     return (

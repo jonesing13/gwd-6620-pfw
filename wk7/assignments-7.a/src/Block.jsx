@@ -34,7 +34,7 @@ function Block({blockArray}) {
                 starRating={blockArray[2].starRating} 
                 price={blockArray[2].price} 
                 status={blockArray[2].status} />
-            <BlockDetail 
+            <BlockDetail
                 name={blockArray[3].name} 
                 image={blockArray[3].image} 
                 description={blockArray[3].description} 

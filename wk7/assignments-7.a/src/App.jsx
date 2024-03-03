@@ -32,47 +32,39 @@ function App() {
   const blockArray = [
     {
       name: "Bonsai Tree",
-      id: 1,
       image: "./bonsai-tree_product_image_267x400.jpg",
-      itemNumber: 10281,
       pieces: 878,
       description: "Designed especially for adults, this rewarding project includes 878 pieces, creating a beautiful display piece measuring over 7 in. (18 cm) high.",
       starRating: "4.5/5",
       price: "49.99",
-      status: "Active"
+      status: "Available"
     },
     {
       name: "Wildflower Bouquet",
-      id: 2,
       image: "./wildflower-bouquet_product_image_267x400.jpg",
-      itemNumber: 10313,
       pieces: 939,
       description: "Immerse yourself in color! The building set provides an immersive building experience for nature-lovers and budding florists.",
       starRating: "5/5",
       price: "59.99",
-      status: "Active"
+      status: "Available"
+    },
+    {
+      name: "Bird of Paradise",
+      image: "./bird-of-paradise_product_image_267x400.jpg",
+      pieces: 1173,
+      description: "Build a Bird of Paradise for your collection. This build features a repositionable flower model with unique elements for the stamens. Retired December 2023.",
+      starRating: "4.5/5",
+      price: "99.99",
+      status: "Retired"
     },
     {
       name: "Orchid",
-      id: 3,
       image: "./orchid_product_image_263x400.jpg",
-      itemNumber: 10311,
       pieces: 608,
       description: "Build your own orchid display and enjoy a rewarding project for adults as you build a joyful and elegant orchid decor piece for your home or office.",
       starRating: "5/5",
       price: "49.99",
-      status: "Active"
-    },
-    {
-      name: "Bird of Paradise",
-      id: 4,
-      image: "./bird-of-paradise_product_image_267x400.jpg",
-      itemNumber: 10289,
-      pieces: 1173,
-      description: "Build a Bird of Paradise for your collection. This build features a repositionable flower model with unique elements for the stamens. (Retired December 2023.)",
-      starRating: "4.5/5",
-      price: "99.99",
-      status: "Retired"
+      status: "Available"
     }
   ]
   // TODO convert this to .map to show all items in the list
