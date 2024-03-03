@@ -1,0 +1,9 @@
+.odd {
+    background-color: #9ccfff;
+}
+
+.retired {
+    font-style: italic;
+    color: #1579c4;
+    font-weight: 900;
+}

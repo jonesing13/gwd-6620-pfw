@@ -1,0 +1,29 @@
+/*
+COLORS
+
+woodstock yellow #ffdc17, #ffdb18
+sky blue #95d0fc
+grass #909710
+dog house red #ea191e
+*/
+
+html {
+    box-sizing: border-box;
+}
+  
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    /* trying to center p5js sketch horizontally */
+    justify-content: center;
+    /* trying to center p5js sketch vertically */
+    align-items: center;
+    /* trying to make background match my p5js */
+    background-color: #95d0fc;
+}

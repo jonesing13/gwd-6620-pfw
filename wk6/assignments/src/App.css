@@ -1,0 +1,20 @@
+#root {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #1e1a17;
+  background-color: #d2cabc;
+}
+
+body {
+  background-color: #d2cabc;
+}
+
+.card {
+  padding: 2em;
+  margin-top: 3em;
+  background-color: #2b3524;
+  border-radius: .5em;
+  color: #f1f1f1;
+}
+
