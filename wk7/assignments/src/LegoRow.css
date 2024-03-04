@@ -4,6 +4,6 @@
 
 .retired {
     font-style: italic;
-    color: #1579c4;
     font-weight: 900;
+    background-color: rgba(240, 104, 27, 1);
 }

@@ -48,7 +48,8 @@ function App() {
 
   return (
     <>
-      <h1 className="header">My LEGO<sup>&reg;</sup> Botanical Collection</h1>
+      <h1 className="header">My LEGO<sup>&reg;</sup> Botanical Collection &#127793;</h1>
+      <p>A non-exhaustive list of the items I have around the house from the Botanical Collection.</p>
       <table className="lego-table">
         <thead>
           <tr>
