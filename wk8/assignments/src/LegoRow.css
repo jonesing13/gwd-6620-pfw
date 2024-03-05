@@ -7,3 +7,9 @@
     font-weight: 900;
     background-color: rgba(240, 104, 27, 1);
 }
+
+button {
+    padding: 1rem;
+    margin: .5rem;
+    border-radius: 8px;
+}

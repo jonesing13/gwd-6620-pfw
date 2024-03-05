@@ -46,6 +46,43 @@ function App() {
     }
   ]
 
+/*  
+
+- put a button on your list item that will allow users to duplicate instances of your collected items
+- also introduce a delete button
+
+See requirements below:
+
+    Both the delete and duplicate functions should be passed as component props.
+    Collections arrays should be converted to state variables.
+    Delete and duplicate operations should update the collection array state variables
+    Each collection item should have a button that trigger a method that removes the associated item from the collection array.
+
+Your assignment will be graded upon:
+
+    Required elements function as described
+    JavaScript is well formed and follows correct syntax
+    Demonstration of understanding of state and useState hook
+    Demonstration of understanding of event handling and passing functions as props
+
+Each grading criteria is worth 10 points
+
+Note: Please don't forget to use good design. My demos are meant to show how to make things functional—I'm leaving the design up to you.
+
+*/
+
+  function deleteRow(name) {
+    let newLegoCollection = legoCollection.filter((/* not sure what to put in here to delete the whole row */) => {
+      return lego !== name; // not sure what this changes to 
+    });
+    setLegoCollection(newLegoCollection);
+  }
+
+  // focus button functionality--update page header based on the animal showing
+  function copyRow(name) {
+    let appendedLegoCollection = legoCollection.map(/*not sure what to put in here to add a whole row.... <LegoRow>?*/);
+  } 
+
   return (
     <>
       <h1 className="header">My LEGO<sup>&reg;</sup> Botanical Collection &#127793;</h1>
@@ -58,6 +95,7 @@ function App() {
             <th>Description</th>
             <th>Price</th>
             <th>Status</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -71,6 +109,8 @@ function App() {
                 description={lego.description}
                 price={lego.price}
                 status={lego.status}
+                copy={lego.copyRow}
+                delete={lego.deleteRow}
                 />
             )
           })}
