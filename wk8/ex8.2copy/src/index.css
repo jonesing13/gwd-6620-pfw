@@ -1,0 +1,45 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background: #fffb93;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 8rem;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: .5rem;
+  border: 1px solid transparent;
+  padding: 0.25rem 1rem;
+  font-size: medium;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f71c64;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  color: #190119;
+  margin-right: 2rem;
+}
+.button-secondary {
+  background-color: #f13f11;
+}
+button:hover {
+  border-color: #021715;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
