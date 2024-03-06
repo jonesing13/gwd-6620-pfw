@@ -1,0 +1,31 @@
+html {
+  padding: 2rem 4rem;
+  text-align: center;
+  font-family: San Francisco, Cera Pro, sans-serif;
+  background-color: #F2F5EB;
+}
+
+h1 {
+  padding: 2rem;
+  font-weight: 900;
+}
+
+button {
+  margin: 4rem;
+  margin-top: 3rem;
+  padding: 1rem;
+  border-radius: .5rem;
+  border-color: none;
+  background-color: #385982;
+  color: white;
+  font-weight: 500;
+  font-size: medium;
+  letter-spacing: .075rem;
+}
+
+
+img {
+  height: 100%;
+  max-height: 400px;
+  border-radius: .5rem;
+}
