@@ -2,6 +2,7 @@ import './App.css'
 import { useState } from 'react'
 import Masthead from './Masthead/Masthead'
 import ItemCard from './ItemCard/ItemCard'
+import { nanoid } from "nanoid"
 
 function App() {
   // set landing lego collection to the full array
@@ -48,6 +49,28 @@ function App() {
     }
   ])
 
+  function deleteLego(id) {
+    // console.log("delete me", id)
+    const updatedLegoArray = legos.filter((lego) => {
+      return lego.id !== id // skips item with matching id
+    })
+    setLegos(updatedLegoArray)
+  }
+
+  // take id that matches and generate a duplicate item in list but with a new (unique) id-remember, id is a key
+  function duplicateLego(id) {
+    // console.log("duplicate me", id)
+    const matchingLego = legos.find((lego) => {
+      return lego.id === id // 
+    })
+    const updatedLegos = {...matchingLego, id: nanoid()}
+    setLegos([...legos, updatedLegos])
+  }
+
+
+  // TODO add a conditional style when retired=true that sets the card background to light blue?
+  // fix the button/<a> links for delete/copy
+  // sketch some designs for the card content; figure out what your actual flex needs are (and className needs)
   return (
     <div className="page">
       {/* masthead goes here */}
@@ -58,7 +81,12 @@ function App() {
         {/* use ItemCard component in loop */}
         {legos.map((legoItem) => {
           return (
-            <ItemCard key={legoItem.id} {... legoItem} />
+            
+            <ItemCard 
+            key={legoItem.id} 
+            deleteFn={deleteLego}
+            duplicateFn={duplicateLego}
+            {... legoItem} />
           )
         })}
       </div>

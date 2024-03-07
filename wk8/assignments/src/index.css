@@ -1,6 +1,7 @@
 /*
 black #141414
 blue #1579c4
+light blue #9ccfff
 white
 light grey #c1c1c1
 light grey #efefef
@@ -8,11 +9,16 @@ brand bright yellow #ffd400
 */
 
 #root {
-  font-family: Cera Pro, sans-serif;
+  font-family: "Cera Pro", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 }
 
 body {
   margin: 0;
+}
+
+h1 {
+  font-family: "hwt-artz", "Cera Pro", sans-serif;
+  font-weight: 700;
 }
