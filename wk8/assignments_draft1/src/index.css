@@ -7,12 +7,23 @@ light grey #efefef
 brand bright yellow #ffd400
 */
 
-#root {
+:root {
   font-family: Cera Pro, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 }
 
-body {
+.header {
+  background-color: #ffd400;
+  width: 100%;
+  padding: 2rem 4rem;
   margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+p {
+  margin: 2rem;
 }

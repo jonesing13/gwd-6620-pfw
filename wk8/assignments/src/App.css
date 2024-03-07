@@ -1,28 +1,10 @@
-.lego-table {
-  width: 80%;
-  text-align: left;
-  border: 1px solid #c1c1c1;
-  border-collapse: collapse;
-  margin: 2rem;
+.page {
+  max-width: 728px;
+  margin: 0 auto;
 }
 
-.lego-table thead, .lego-table tr, .lego-table td, .lego-table th {
-  border: 1px solid #c1c1c1;
-}
-
-.lego-table thead {
-  background-color: #1579c4;
-}
-
-.lego-table th {
-  padding: 1rem;
-}
-
-.lego-table img {
-  max-width: 80px;
-}
-
-.lego-table td {
-  font-size: small;
-  padding: 1rem;
+.collection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
