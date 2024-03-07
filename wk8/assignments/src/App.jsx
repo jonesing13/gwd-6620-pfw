@@ -11,40 +11,40 @@ function App() {
       image: "./bonsai-tree_product_image_267x400.jpg",
       description: "Designed especially for adults, this rewarding project includes 878 pieces, creating a beautiful display piece measuring over 7 in. (18 cm) high.",
       rating: "4.5/5",
-      active: true,
-      id: 1
+      retired: false,
+      id: "1"
     },
     {
       name: "Wildflower Bouquet",
       image: "./wildflower-bouquet_product_image_267x400.jpg",
-      description: "Immerse yourself in color! The building set provides an immersive building experience for nature-lovers and budding florists.",
+      description: "Immerse yourself in color! This building set provides an outstanding building experience for nature-lovers and budding florists.",
       rating: "5/5",
-      active: true,
-      id: 2
+      retired: false,
+      id: "2"
     },
     {
       name: "Bird of Paradise",
       image: "./bird-of-paradise_product_image_267x400.jpg",
       description: "Build a Bird of Paradise for your collection. This build features a repositionable flower model with unique elements for the stamens. (Retired December 2023.)",
       rating: "4.5/5",
-      active: false,
-      id: 3
+      retired: true,
+      id: "3"
     },
     {
       name: "Orchid",
       image: "./orchid_product_image_263x400.jpg",
       description: "Build your own orchid display and enjoy a rewarding project for adults as you build a joyful and elegant orchid decor piece for your home or office.",
       rating: "5/5",
-      active: true,
-      id: 4
+      retired: false,
+      id: "4"
     },
     {
       name: "Succulents",
       image: "./succulents_product_image_400x330.png",
       description: "Enjoy a rewarding building project, creating a succulents plant display to enhance your home or office decor. You can customize your display by connecting the 9 plants together, arranging them in small groups or presenting them individually.",
       rating: "4.5/5",
-      active: true,
-      id: 5
+      retired: false,
+      id: "5"
     }
   ])
 

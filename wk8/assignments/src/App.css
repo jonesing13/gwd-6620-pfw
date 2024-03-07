@@ -1,5 +1,4 @@
 .page {
-  max-width: 728px;
   margin: 0 auto;
 }
 
@@ -7,4 +6,5 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
