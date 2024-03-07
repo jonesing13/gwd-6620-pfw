@@ -37,6 +37,14 @@ function App() {
       rating: "5/5",
       active: true,
       id: 4
+    },
+    {
+      name: "Succulents",
+      image: "./succulents_product_image_400x330.png",
+      description: "Enjoy a rewarding building project, creating a succulents plant display to enhance your home or office decor. You can customize your display by connecting the 9 plants together, arranging them in small groups or presenting them individually.",
+      rating: "4.5/5",
+      active: true,
+      id: 5
     }
   ])
 
