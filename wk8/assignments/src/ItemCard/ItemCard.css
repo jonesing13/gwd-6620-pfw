@@ -1,9 +1,12 @@
 .legoCard {
+    background: #ffffff;
     width: 100%;
     max-width: 560px;
     padding: 1rem;
-    margin: 0;
-    border: 1px solid #c1c1c1;
+    margin: 1rem;
+    border: 1px solid #a0a0a0;
+    border-radius: 10px;
+    box-shadow: .5em .5em 2em .5em #1579c4;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -24,8 +27,8 @@
 }
 
 .cardImg img {
-    max-width: 267px;
-    width: 100%;
+    width: 120px;
+    margin-top: 1rem;
 }
 
 .cardTitle {
@@ -37,10 +40,14 @@
 .retired {
     width: 2rem;
     height: 2rem;
-    top: 1rem;
     position: absolute;
+    top: 2rem;
+    right: 2rem;
     z-index: 10;
-    right: .5rem;
+}
+
+.actions {
+    margin-top: 3rem;
 }
 
 .actions a img {
@@ -57,5 +64,5 @@
 }
 
 .actions a:hover {
-    background: #9ccfff;
+    background: #f0681b;
 }

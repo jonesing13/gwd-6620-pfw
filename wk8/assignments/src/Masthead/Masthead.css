@@ -1,8 +1,14 @@
 .masthead {
     width: 100%;
     text-align: center;
-    margin: 50px auto 20px;
+    margin: 0 auto;
+    padding: 1rem;
     background: #ffd400;
-    padding-top: 2rem;
-    padding-bottom: .5rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.masthead img {
+    max-width: 160px;
+    width: 100%;
 }

@@ -1,9 +1,8 @@
 import PropTypes from "prop-types"
 import "./ItemCard.css"
-import clsx from 'clsx'
-import retired from "../assets/icons/skull-crossbones-solid.svg"
 import trash from "../assets/icons/trash-can-regular.svg"
 import duplicate from "../assets/icons/copy-regular.svg"
+import dead from "../assets/icons/face-dizzy-regular_yellow.svg"
 
 export default function ItemCard({
     name,
@@ -17,33 +16,34 @@ export default function ItemCard({
 }) {
     return (
         <div className="legoCard">
-            
 
             <div className="cardImg">
                 <img src={image} alt={name} />
             </div>
 
             {/* this is a conditional div that only shows when the lego/build is 'retired' */}
-            {retired && <div className="retired"> <img src={retired} title="this build is retired" /> </div>}
+            {retired && <div className="retired"> <img src={dead} title="this build is retired" /> </div>}
 
             <ul className="cardDetails">
                 <li className="cardTitle">{name}</li>
                 <li>{description}</li>
                 <li>{rating}</li>
-                <li>{retired}</li>
 
                 <li className="actions">
-                    <a href="#" onClick={(evt) => {
-                        evt.preventDefault();
-                        deleteFn(id)
-                    }}>
-                        <img src={trash} />
-                    </a>
+                    {/* call the copy function and show a copy icon */}
                     <a href="#" onClick={(evt) => {
                         evt.preventDefault();
                         duplicateFn(id)
                     }}>
                         <img src={duplicate} />
+                    </a>
+
+                    {/* call the delete function and show a trash can image */}
+                    <a href="#" onClick={(evt) => {
+                        evt.preventDefault();
+                        deleteFn(id)
+                    }}>
+                        <img src={trash} />
                     </a>
                 </li>
             </ul>

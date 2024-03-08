@@ -1,5 +1,5 @@
 import "./Masthead.css"
-import mastheadImg from "../assets/lego-tiny-plants-masthead.png"
+import mastheadImg from "../assets/lego-tiny-plants-200x138.png"
 
 export default function Masthead() {
     return (
