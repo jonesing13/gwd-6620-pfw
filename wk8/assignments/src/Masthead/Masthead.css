@@ -5,7 +5,7 @@
     padding: 1rem;
     background: #ffd400;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .masthead img {
