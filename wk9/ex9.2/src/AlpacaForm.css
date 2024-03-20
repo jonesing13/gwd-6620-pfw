@@ -1,0 +1,27 @@
+/* form related */
+
+fieldset {
+    margin-bottom: 1em;
+}
+
+input[type=checkbox] {
+    margin-right: 2rem;
+    margin-left: .5rem;
+}
+
+.formgroup {
+    margin: .5rem;
+}
+
+.formgroup label {
+    margin-right: .5rem;
+}
+
+.formgroup input,
+.formgroup select {
+    padding: .5rem;
+}
+
+.formgroup small {
+    color: #d9392d;
+}
