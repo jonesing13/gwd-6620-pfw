@@ -76,21 +76,38 @@ export function AlpacaForm () {
     firstName: "",
     lastName: ""
   })
-  function validateErrors () {
-    if(!formObject.firstName) {
-      setErrorObject({
-        ...errorObject,
-        firstName: "First Name is required"
-      })
-    } else if(!formObject.lastName) {
-      setErrorObject({
-        ...errorObject,
-        lastName: "Last Name is required"
+
+  function validateFirstName() {
+    if(!formObject.firstName.trim()) {
+      setErrorObject((prevErrorObject) => {
+        return {
+          ...prevErrorObject,
+          firstName: "First Name is required."
+        }
       })
     } else {
-      setErrorObject({
-        ...errorObject,
-        firstName: "This field is required"
+      setErrorObject((prevErrObj) => {
+        return {
+          ...prevErrObj,
+          firstName: ""
+        }
+      })
+    }
+  }
+  function validateLastName() {
+    if(!formObject.lastName.trim()) {
+      setErrorObject((prevErrorObject) => {
+        return {
+          ...prevErrorObject,
+          lastName: "Last Name is required."
+        }
+      })
+    } else {
+      setErrorObject((prevErrObj) => {
+        return {
+          ...prevErrObj,
+          lastName: ""
+        }
       })
     }
   }
@@ -128,6 +145,9 @@ export function AlpacaForm () {
 
   function handleSubmit(event) {
     event.preventDefault();
+    // make sure no errors
+    validateFirstName();
+    validateLastName();
     console.log("submit triggered");
     console.log("the whole form object", formObject)
 
@@ -148,7 +168,9 @@ export function AlpacaForm () {
               id="firstName" 
               value={formObject.firstName}
               onChange = {changeHandler}
-              onBlur = {validateErrors}
+              onBlur = {() => {
+                validateFirstName();
+              }}
             />
             {errorObject.firstName && (
               <>
@@ -167,7 +189,9 @@ export function AlpacaForm () {
               id="lastName"
               value={formObject.lastName}
               onChange = {changeHandler}
-              onBlur = {validateErrors}
+              onBlur = {() => {
+                validateLastName();
+              }}
             />
             {errorObject.lastName && (
               <>
