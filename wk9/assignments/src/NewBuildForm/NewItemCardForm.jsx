@@ -42,7 +42,7 @@ export function NewItemCardForm( {addItemCardFn} ) {
             valid = false;
         }
         if (!newItemCard.rating) {
-            errors.rating = "Provide a rating in whole or half numbers (out of 5)";
+            errors.rating = "Provide a rating from 0 to 5";
             valid = false;
         }
         // set message error for all of the above if left blank
@@ -91,7 +91,7 @@ export function NewItemCardForm( {addItemCardFn} ) {
                         value={newItemCard.name} 
                         onChange={changeHandler}
                         />
-                        {errorObj.name && <small className="error-message">{errorObj.name}</small>}
+                        {errorObj.name && <small className="error-message"><br />{errorObj.name}</small>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="image">
@@ -102,7 +102,7 @@ export function NewItemCardForm( {addItemCardFn} ) {
                         value={newItemCard.image} 
                         onChange={changeHandler}
                         />
-                        {errorObj.image && <small className="error-message">{errorObj.image}</small>}
+                        {errorObj.image && <small className="error-message"><br />{errorObj.image}</small>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">
@@ -113,7 +113,7 @@ export function NewItemCardForm( {addItemCardFn} ) {
                         value={newItemCard.description} 
                         onChange={changeHandler}
                         />
-                        {errorObj.description && <small className="error-message">{errorObj.description}</small>}
+                        {errorObj.description && <small className="error-message"><br />{errorObj.description}</small>}
                     </div>
                     <div className="form-group">
                         <label htmlFor="rating">
@@ -124,6 +124,7 @@ export function NewItemCardForm( {addItemCardFn} ) {
                         value={newItemCard.rating} 
                         onChange={changeHandler}
                         />
+                        {errorObj.rating && <small className="error-message"><br />{errorObj.rating}</small>}
                     </div>
                 </fieldset>
 
