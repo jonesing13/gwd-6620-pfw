@@ -14,6 +14,8 @@ export function NewItemCardForm( {addItemCardFn} ) {
     }
     // set control items for adding new items to list
     const [newItemCard, setNewItemCard] = useState(initialItemCardSettings)
+    // need boolean for radio button
+    const buttonState = Boolean([Boolean('true'), Boolean('false')]);
     // for validation, create a new state variable
     const [errorObj, setErrorObj] = useState({
         name: "",
@@ -234,15 +236,16 @@ export function NewItemCardForm( {addItemCardFn} ) {
                     Build Status
                 </legend>
                 <div className="form-group radio-group">
-                    Is this build for sale by Lego<sup>&reg;</sup>?<br />
+                    Did Lego<sup>&reg;</sup> retire this build?<br />
                     <label htmlFor="retired">
                         Yes
                         <input 
                             type="radio" 
                             name="retired" 
                             id="active" 
+                            value={newItemCard.retired}
                             onChange={changeHandler}
-                            checked={newItemCard.retired}
+                            checked={buttonState}
                             />
                     </label>
                     <label htmlFor="retired">
@@ -251,8 +254,9 @@ export function NewItemCardForm( {addItemCardFn} ) {
                             type="radio" 
                             name="retired" 
                             id="retired" 
+                            value={newItemCard.retired}
                             onChange={changeHandler}
-                            checked={newItemCard.retired}
+                            checked={buttonState}
                             />
                     </label>
                 </div>
