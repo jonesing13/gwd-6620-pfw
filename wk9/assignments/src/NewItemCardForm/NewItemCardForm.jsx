@@ -2,8 +2,8 @@ import {useState} from "react"
 import PropTypes from "prop-types";
 import './NewItemCardForm.css'
 
-
-export function NewItemCardForm( {addItemCardFn} ) {
+//removed this from NewItemCardForm():::: {addItemCardFn}
+export function NewItemCardForm(  ) {
     // set up an initial data set so we can "reset" at any point
     const initalItemCardSettings = {
         name: "",
@@ -15,7 +15,7 @@ export function NewItemCardForm( {addItemCardFn} ) {
 
     // enable useState to control newCard data
     const [newItemCard, setNewItemCard] = useState(initalItemCardSettings);
-
+/*
     // enable form validation for new build/card
     // create state variable for errors
     const [errorObj, setErrorObj] = useState({
@@ -49,7 +49,7 @@ export function NewItemCardForm( {addItemCardFn} ) {
         setErrorObj(errors);
         return valid;
     }
-
+*/
     function changeHandler(event) {
         setNewCard((prevItemCard) => {
             return {
@@ -58,10 +58,10 @@ export function NewItemCardForm( {addItemCardFn} ) {
             }
         })
     }
-
+/* // with validation on submit
     function submitHandler(event) {
         event.preventDefault();
-        console.log(NewItemCard);
+        console.log(newItemCard);
         if (validateForm(newItemCard)) {
             // if no errors, add new card
             addItemCardFn(newItemCard);
@@ -71,12 +71,24 @@ export function NewItemCardForm( {addItemCardFn} ) {
             });
         }
     }
+    */
+    function submitHandler(event) {
+        event.preventDefault();
+        console.log({newItemCard});
+        setNewItemCard((prevItemCard) => {
+            return {
+                ...prevItemCard,
+                [event.target.name]: event.target.value
+            }
+        })
+        }
+    }
 
     return (
         <>
             <form className="new-item-card-form-wrapper" onSubmit={submitHandler}>
                 <h2 className="form__title">
-                    Add a new Build to the collection!
+                    Add a new build to the collection!
                 </h2>
                 <fieldset>
                     <legend className="fieldset-heading">
@@ -106,7 +118,7 @@ export function NewItemCardForm( {addItemCardFn} ) {
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">
-                            Build Description
+                            Description
                         </label>
                         <input
                         type="text" name="description" id="description"
@@ -130,7 +142,7 @@ export function NewItemCardForm( {addItemCardFn} ) {
 
                 <fieldset>
                     <legend className="fieldset-heading">
-                        Collection Details
+                        Build Status
                         </legend>
                     <div className="form-group">
                         <label htmlFor="retired">
@@ -148,7 +160,6 @@ export function NewItemCardForm( {addItemCardFn} ) {
             </form>
         </>
     )
-}
 
 NewItemCardForm.propTypes = {
     addItemCardFn: PropTypes.func.isRequired
