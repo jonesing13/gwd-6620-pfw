@@ -1,0 +1,63 @@
+form {
+    background: #ffffff;
+    padding: 4rem 8rem;
+    margin: 4rem;
+    border: 1px solid #a0a0a0;
+    border-radius: 10px;
+    box-shadow: .5em .5em 2em .5em #1579c4;
+}
+
+.new-item-card-form-wrapper {
+    border-radius: 1rem;
+    border: 1px solid #a0a0a0;
+    padding: 4rem 8rem;
+    margin: 4rem;
+}
+
+.form__title {
+    font: xx-large;
+    font-family: "hwt-artz", "Cera Pro", sans-serif;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+fieldset {
+    border: #1579c4;
+    border-style: solid;
+    margin-bottom: 1rem;
+}
+
+fieldset div {
+    margin: .5rem;
+}
+
+.fieldset-heading {
+    font: large;
+    font-weight: 700;
+}
+
+legend {
+    margin: 1rem;
+}
+
+.form-group {
+    padding-right: 1rem;
+}
+
+.error-message {
+    color: red;
+}
+
+button {
+    margin-top: 1rem;
+    text-align: center;
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    background: #ffd400;
+}
+
+button:hover {
+    background: #f0681b;
+}
+
+/* blue #1579c4 */

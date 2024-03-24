@@ -1,0 +1,29 @@
+/*
+black #141414
+blue #1579c4
+white
+light grey #c1c1c1
+light grey #efefef
+brand bright yellow #ffd400
+*/
+
+:root {
+  font-family: Cera Pro, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.header {
+  background-color: #ffd400;
+  width: 100%;
+  padding: 2rem 4rem;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+p {
+  margin: 2rem;
+}
