@@ -44,8 +44,12 @@ legend {
     padding-right: 1rem;
 }
 
+label, input {
+    margin-right: .5rem;
+}
+
 .error-message {
-    color: red;
+    color: #d9000d;
 }
 
 button {
