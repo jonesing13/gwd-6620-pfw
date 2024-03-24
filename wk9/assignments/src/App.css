@@ -1,0 +1,13 @@
+.page {
+  margin: 0 auto;
+  padding-bottom: 4rem;
+  position: relative;
+}
+
+.collection {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
