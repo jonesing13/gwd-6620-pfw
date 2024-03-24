@@ -1,10 +1,10 @@
-import './App.css'
 import { useState } from 'react'
-import Masthead from './Masthead/Masthead'
-import ItemCard from './ItemCard/ItemCard'
 import { nanoid } from "nanoid"
 import { NewItemCardForm } from './NewItemCardForm/NewItemCardForm'
+import Masthead from './Masthead/Masthead'
+import ItemCard from './ItemCard/ItemCard'
 import Footer from './Footer/Footer'
+import './App.css'
 
 
 function App() {
@@ -70,10 +70,14 @@ function App() {
     setLegos([...legos, updatedLegos])
   }
 
+  function addItemCard(newItemCard) {
+    const itemCardWithId = {
+      ...newItemCard,
+      id: nanoid()
+    }
+    setLegos([...legos, itemCardWithId])
+  }
 
-  // TODO add a conditional style when retired=true that sets the card background to light blue?
-  // fix the button/<a> links for delete/copy
-  // sketch some designs for the card content; figure out what your actual flex needs are (and className needs)
   return (
     <div className="page">
       {/* masthead goes here */}
@@ -96,7 +100,7 @@ function App() {
 
       {/* a Form to add a new item card/build */}
       <hr />
-      <NewItemCardForm />
+      <NewItemCardForm addItemCardFn = {addItemCard}/>
 
       {/* Footer goes here */}
       <Footer />
