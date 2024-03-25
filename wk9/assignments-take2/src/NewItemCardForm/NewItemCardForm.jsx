@@ -115,6 +115,9 @@ export function NewItemCardForm( {addItemCardFn} ) {
 
     return (
         <form className="new-item-card-form-wrapper" onSubmit={submitHandler}>
+            <h2 className="form__title">
+                Add a new build to the collection!
+            </h2>
             <fieldset>
                 <legend className="fieldset-heading">
                     Build Details
