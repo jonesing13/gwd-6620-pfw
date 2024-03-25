@@ -69,12 +69,12 @@ export function NewItemCardForm( {addItemCardFn} ) {
         return valid
     }
 
-    // handle setting new data in new items
+    // handle setting new data in form items/adds
     function changeHandler(event) {
-        console.log(event.target.name)
+        // console.log(event.target.name)
         if(event.target.name === "retired") {
             // toggle retired value when clicked
-            console.log(event.target.value)
+            // console.log(event.target.value)
             setNewItemCard((prevItemCard) => {
                 return {
                     ...prevItemCard,
@@ -104,7 +104,7 @@ export function NewItemCardForm( {addItemCardFn} ) {
     // handle submission functionality
     function submitHandler(event) {
         event.preventDefault()
-        console.log({ newItemCard })
+        // console.log({ newItemCard })
         if(validateForm(newItemCard)) {
             // send card to App
             addItemCardFn(newItemCard)
