@@ -75,31 +75,22 @@ export function NewItemCardForm( {addItemCardFn} ) {
     function changeHandler(event) {
         console.log(event.target.name)
         if(event.target.name === "retired") {
-            // if build is "retired", set retired to "true"
-            if(event.target.id === "retired") {
-                setNewItemCard((prevItemCard) => {
-                    return {
-                        ...prevItemCard,
-                        retired: "true"
-                    }
-                })
-            } else {
-                // if build is active (or null), set retired to "false"
-                setNewItemCard((prevItemCard) => {
-                    return {
-                        ...prevItemCard,
-                        retired: "false"
-                    }
-                })
+            // toggle retired value when clicked
+            console.log(event.target.value)
+            setNewItemCard((prevItemCard) => {
+                return {
+                    ...prevItemCard,
+                    retired: !prevItemCard.retired
+                }
+            })
+        } else {
+            setNewItemCard((prevItemCard) => {
+                return {
+                    ...prevItemCard,
+                    [event.target.name]: event.target.value
+                }
             }
-        }
-        setNewItemCard((prevItemCard) => {
-            return {
-                ...prevItemCard,
-                [event.target.name]: event.target.value
-            }
-        }
-        )
+        )}
     }
 
     // handle submission functionality
@@ -152,7 +143,7 @@ export function NewItemCardForm( {addItemCardFn} ) {
                 </div>
                 <div className={{"form-group": true, "error": errorObj.image}}>
                     <label htmlFor="image">
-                        Picture:
+                        Image file name:
                     </label>
                     <input 
                         type="text" 
@@ -236,27 +227,14 @@ export function NewItemCardForm( {addItemCardFn} ) {
                     Build Status
                 </legend>
                 <div className="form-group radio-group">
-                    Did Lego<sup>&reg;</sup> retire this build?<br />
                     <label htmlFor="retired">
-                        Yes
+                        This build is retired
                         <input 
-                            type="radio" 
-                            name="retired" 
-                            id="active" 
-                            value={newItemCard.retired}
-                            onChange={changeHandler}
-                            checked={buttonState}
-                            />
-                    </label>
-                    <label htmlFor="retired">
-                        No
-                        <input 
-                            type="radio" 
+                            type="checkbox" 
                             name="retired" 
                             id="retired" 
-                            value={newItemCard.retired}
                             onChange={changeHandler}
-                            checked={buttonState}
+                            checked={newItemCard.retired}
                             />
                     </label>
                 </div>

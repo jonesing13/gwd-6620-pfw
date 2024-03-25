@@ -58,6 +58,7 @@ button {
     border-radius: .5rem;
     padding: .5rem 1rem;
     background: #ffd400;
+    font-size: medium;
 }
 
 button:hover {
