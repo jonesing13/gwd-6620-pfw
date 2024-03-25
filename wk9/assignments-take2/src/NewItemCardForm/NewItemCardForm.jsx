@@ -14,8 +14,6 @@ export function NewItemCardForm( {addItemCardFn} ) {
     }
     // set control items for adding new items to list
     const [newItemCard, setNewItemCard] = useState(initialItemCardSettings)
-    // need boolean for radio button
-    const buttonState = Boolean([Boolean('true'), Boolean('false')]);
     // for validation, create a new state variable
     const [errorObj, setErrorObj] = useState({
         name: "",
@@ -89,8 +87,18 @@ export function NewItemCardForm( {addItemCardFn} ) {
                     ...prevItemCard,
                     [event.target.name]: event.target.value
                 }
-            }
-        )}
+            })
+        }
+        /* TODO: transform the rating to the "#/5" of the original list       
+        if(event.target.name === "rating") => {
+            setNewItemCcard((prevItemCard) => {
+                return {
+                    ...prevItemCard,
+                    rating: event.target.value, "/5"
+                }
+            })
+        }
+        */
     }
 
     // handle submission functionality
