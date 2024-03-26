@@ -2,8 +2,9 @@
     font-family: "Cera Pro", sans-serif;
     line-height: 1.5;
     font-weight: 400;
+    max-width: 1060px;
     margin: 0 auto;
-    padding: 2rem 4rem;
+    padding: 2rem;
 }
 
 nav {
@@ -18,4 +19,18 @@ nav ul {
 
 nav ul li {
     padding-right: 2rem;
+}
+
+a:hover {
+    color: forestgreen;
+}
+
+a:active {
+    font-weight: 800;
+    text-decoration: none;
+}
+
+img {
+    float: left;
+    margin-right: 1rem;
 }
