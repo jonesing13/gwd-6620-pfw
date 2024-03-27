@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.46ae0dee.css",
+    "main.js": "/static/js/main.19ecf312.js",
+    "static/media/alpacas_600x600.jpg": "/static/media/alpacas_600x600.257e87a4b33d9333d1e1.jpg",
+    "static/media/llamas_600x600.jpg": "/static/media/llamas_600x600.ba8fd26ea1b142382158.jpg",
+    "index.html": "/index.html",
+    "main.46ae0dee.css.map": "/static/css/main.46ae0dee.css.map",
+    "main.19ecf312.js.map": "/static/js/main.19ecf312.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.46ae0dee.css",
+    "static/js/main.19ecf312.js"
+  ]
+}
