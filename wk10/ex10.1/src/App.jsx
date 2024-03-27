@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from 'react-router-dom'
+import { NavLink, Route, Routes } from 'react-router-dom'
 import { Home } from './views/Home'
 import { Alpacas } from './views/Alpacas'
 import { Llamas } from './views/Llamas'
@@ -10,13 +10,13 @@ export default function App() {
       <nav>
         <ul className="topnav">
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <Link to="/alpacas">Alpacas</Link>
+            <NavLink to="/alpacas">Alpacas</NavLink>
           </li>
           <li>
-            <Link to="/llamas">Llamas</Link>
+            <NavLink to="/llamas">Llamas</NavLink>
           </li>
         </ul>
       </nav>

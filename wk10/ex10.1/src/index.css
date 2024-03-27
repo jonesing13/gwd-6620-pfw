@@ -21,16 +21,17 @@ nav ul li {
     padding-right: 2rem;
 }
 
-a:hover {
-    color: forestgreen;
+img {
+    float: left;
+    margin-right: 2rem;
+    margin-bottom: 1.5rem;
 }
 
-a:active {
+.active {
     font-weight: 800;
     text-decoration: none;
 }
 
-img {
-    float: left;
-    margin-right: 1rem;
+a:visited {
+    color: inherit;
 }
