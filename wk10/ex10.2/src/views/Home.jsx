@@ -5,17 +5,18 @@ export function Home() {
     return (
         <>
             <h1>Music List</h1>
+            <div className="wrapper">
             {musicData.map((song) => {
                 return (
-                    <div key={song.slug}>
+                    <Link to={`${song.slug}`}><div key={song.slug} className="song-item">
                         <img src={song.cover} alt={song.title} />
-                        <Link to={`${song.slug}`}><p>
+                        <p>
                             <strong>{song.title}</strong> by {song.artist}
-                        </p></Link>
-                    </div>
+                        </p>
+                    </div></Link>
                 )
             })}
-
+            </div>
         </>
     ) 
 }

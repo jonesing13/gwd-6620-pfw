@@ -5,19 +5,30 @@ export function Song({data}) {
     const selectedSong = data.find((song) => song.slug === slug)
     console.log(selectedSong)
     return (
-        <>
-            <nav>
+        <div>
+            <nav className="nav-link">
                 <Link to="/">Return to Home</Link>
             </nav>
 
-            <h1>{selectedSong.title}</h1>
-            <img src={selectedSong.cover} alt={selectedSong.title} />
-            <p>
-                <strong>Artist:</strong> {selectedSong.artist}
-            </p>
-            <p>
-                <strong>Rank:</strong> {selectedSong.rank}
-            </p>
-        </>
+            <div className="song-item">
+                <h1>{selectedSong.title}</h1>
+                <img src={selectedSong.cover} alt={selectedSong.title} />
+                <p>
+                    <strong>Artist:</strong> {selectedSong.artist}
+                </p>
+                <p>
+                    <strong>Current rank:</strong> {selectedSong.rank}
+                </p>
+                <p>
+                    <strong>Number of weeks on chart:</strong> {selectedSong.position.weeksOnChart}
+                </p>
+                <p>
+                    <strong>Rank last week:</strong> {selectedSong.position.positionLastWeek}
+                </p>
+                <p>
+                    <strong>Highest rank:</strong> {selectedSong.position.peakPosition}
+                </p>
+            </div>
+        </div>
     )
 }
