@@ -1,4 +1,5 @@
 import PropTypes from "prop-types"
+import { Link } from "react-router-dom"
 import "./ItemCard.css"
 import trash from "../assets/icons/trash-can-regular.svg"
 import duplicate from "../assets/icons/copy-regular.svg"
@@ -25,7 +26,8 @@ export default function ItemCard({
             {retired && <div className="retired"> <img src={dead} title="this build is retired" /> </div>}
 
             <ul className="cardDetails">
-                <li className="cardTitle">{name}</li>
+                <li className="cardTitle">
+                    <Link to={`${id}`}>{name}</Link></li>
                 <li>{description}</li>
                 <li>{rating}</li>
 
