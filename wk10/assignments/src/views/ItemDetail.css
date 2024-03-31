@@ -67,3 +67,8 @@ ul {
     text-align: center;
     padding: 2rem;
 }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+}

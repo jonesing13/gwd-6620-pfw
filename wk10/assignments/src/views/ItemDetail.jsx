@@ -36,8 +36,8 @@ export function ItemDetail({ data }) {
                 </ul>
             </div>
 
-            <div className="uncontained-link">
-                
+            <div className="footer">
+                <Footer />
             </div>
         </div>
     )
