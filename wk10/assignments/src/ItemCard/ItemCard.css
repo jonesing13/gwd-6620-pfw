@@ -32,6 +32,19 @@
     padding: 0 2rem;
 }
 
+li a {
+    text-decoration: none;
+    color: #f47d20;
+}
+
+li a:hover {
+    text-decoration: underline;
+}
+
+li a:visited {
+    color: #b44d22;
+}
+
 .cardTitle {
     font-family: "hwt-artz", "Cera Pro", sans-serif;
     font-size: x-large;
