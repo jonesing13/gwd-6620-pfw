@@ -47,6 +47,7 @@ li a:visited {
 
 .cardTitle {
     font-family: "hwt-artz", "Cera Pro", sans-serif;
+    letter-spacing: .1rem;
     font-size: x-large;
     font-weight: 700;
 }
@@ -78,5 +79,5 @@ li a:visited {
 }
 
 .actions a:hover {
-    background: #f0681b;
+    background: #f47d20;
 }
