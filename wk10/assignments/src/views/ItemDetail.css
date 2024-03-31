@@ -1,0 +1,69 @@
+#root {
+    font-family: "Cera Pro", sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    background: #9ccfff;
+    margin: 0 auto;
+}
+/* why is there white space at the bottom of this page? */
+
+.views-detail {
+    margin-bottom: 4rem;
+}
+
+.title {
+    font-size: xx-large;
+    font-family: "hwt-artz", "Cera Pro", sans-serif;
+    margin: 0 auto;
+    padding: .1rem;
+    display: flex;
+    justify-content: space-around;
+    background: #ffd400;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.title a {
+    margin: 3rem;
+}
+
+.title h1 {
+    margin: 2rem;
+}
+
+.lego-detail {
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: white;
+    border: 1px solid #a0a0a0;
+    border-radius: 10px;
+    box-shadow: .5em .5em 2em .5em #1579c4;
+    max-width: 560px;
+    text-align: center;
+}
+
+.lego-detail img {
+    padding-bottom: 2rem;
+}
+
+.retired {
+    /* TODO: trying to make this a sort of banner that appears at the top of the detail.... need to fix .jsx for that to happen */
+    font-style: italic;
+    color: #828393;
+    background: #ffd400;
+}
+
+li {
+    margin-bottom: 1rem;
+    list-style: none;
+}
+
+ul {
+    padding: 0;
+}
+
+.uncontained-link {
+    text-align: center;
+    padding: 2rem;
+}
