@@ -60,7 +60,7 @@ export function Home() {
         })}
       </div>
 
-      {/* Footer goes here */}
+      {/* Footer goes here  */}
       <Footer />
     </div>
   )

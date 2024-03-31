@@ -8,10 +8,12 @@ import legoData from "./assets/lego-data.json"
 function App() {
 
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path=":id" element={<ItemDetail data={legoData} />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path=":id" element={<ItemDetail data={legoData} />} />
+      </Routes>
+    </>
   )
 }
 

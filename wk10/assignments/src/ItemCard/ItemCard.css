@@ -29,6 +29,7 @@
 .cardImg img {
     width: 120px;
     margin-top: 1rem;
+    padding: 0 2rem;
 }
 
 .cardTitle {
