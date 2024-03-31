@@ -8,19 +8,21 @@
 /* why is there white space at the bottom of this page? */
 
 .views-detail {
-    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .title {
     font-size: xx-large;
     font-family: "hwt-artz", "Cera Pro", sans-serif;
     letter-spacing: .1rem;
-    margin: 0 auto;
-    padding: .1rem;
+    margin: 0;
+    padding: 0 auto;
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
+    width: 100%;
     background: #ffd400;
-    text-align: center;
     margin-bottom: 3rem;
 }
 

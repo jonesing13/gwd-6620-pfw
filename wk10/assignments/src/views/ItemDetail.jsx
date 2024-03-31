@@ -22,7 +22,7 @@ export function ItemDetail({ data }) {
                 
                 also... can I add the "dead" image to the banner?
                 */}
-                {selectedLego.retired && (<p  className="retired-banner">This build is retired, and no longer sold by LEGO<sup>&reg;</sup>.</p>)}
+                {selectedLego.retired && (<p  className="retired-banner">The {selectedLego.name} lego set is retired, and no longer available for purchase by LEGO<sup>&reg;</sup>.</p>)}
 
                 <img src={selectedLego.image} alt={selectedLego.name} />
 
