@@ -27,19 +27,6 @@ export function Home() {
     setLegos([...legos, updatedLegos])
   }
 
-  //is this needed without "form"?
-  function addCard(newCard) {
-    const cardWithId = {
-      ...newCard,
-      id: nanoid()
-    }
-    setLegos([...legos, cardWithId])
-  }
-
-
-  // TODO add a conditional style when retired=true that sets the card background to light blue?
-  // fix the button/<a> links for delete/copy
-  // sketch some designs for the card content; figure out what your actual flex needs are (and className needs)
   return (
     <div className="page">
       {/* masthead goes here */}

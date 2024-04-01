@@ -18,10 +18,6 @@ export function ItemDetail({ data }) {
             </nav>
 
             <div className="lego-detail">
-                {/* TODO: "retired" style is.... taking itself out of the container of the div??? 
-                
-                also... can I add the "dead" image to the banner?
-                */}
                 {selectedLego.retired && (<p  className="retired-banner">The {selectedLego.name} lego set is retired, and no longer available for purchase by LEGO<sup>&reg;</sup>.</p>)}
 
                 <img src={selectedLego.image} alt={selectedLego.name} />
@@ -36,7 +32,7 @@ export function ItemDetail({ data }) {
                 </ul>
             </div>
             
-            { /*
+            { /* TODO: display footer on all VIEWS
             <div className="footer">
                 <Footer />
             </div>
