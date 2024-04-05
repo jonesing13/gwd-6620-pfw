@@ -29,31 +29,3 @@ function draw() {
         }
     }   
 }
-
-
-
-
-
-
-/*function setup () {
-    creatCanvas(600, 600)
-    background(255);
-    const instance = 35;
-
-}
-
-function draw() {
-    fill=(0)
-    triangle (0, 0, 0, 5 , 5,  0);
-    /*
-    for( let i = 0; i < windowWidth; i+=instance ) {
-        let r = random(255);
-        let g = random(255);
-        let b = random(255);
-        
-    }
-    */
-
-
-/*
-*/
