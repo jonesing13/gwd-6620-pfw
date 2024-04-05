@@ -8,6 +8,7 @@ function draw() {
     
     
     for (let i = 0; i < instance; i += instance/5) {
+        noStroke();
         let x = random(width);
         let y = random(height);
         let size = random(1, 100);
