@@ -96,12 +96,24 @@ function setup() {
                 fill(104,176,171);
                 rect(x, y, 25, 40);
                 pop();
+
+                // teal center rectangle
+                push();
+                fill(0,106,113);
+                rect(x, y, 5, 5);
+                pop();
               
-                // offset lightest teal circle
+                // offset lightest teal ellipse
                 push();
                 fill(236,244,243);
                 ellipse(x + 12, y + 10, 15, 20);
                 pop();
+
+                // offset salmon  ellipse
+                push();
+                fill(255,179,142);
+                ellipse(x - 23, y, 30, 15);
+                pop();                
             } else { // the other grid item stylings (more used)
                 noStroke();
 
@@ -136,6 +148,12 @@ function setup() {
                 fill(255,179,142);
                 ellipse(x, y, cellSide, cellSide / 1.5);
                 pop();
+
+                // med2 teal circle
+                push();
+                fill(59,141,146);
+                circle(x - 2, y - 1, 17);
+                pop();
               
                 // med teal circle
                 push();
@@ -153,14 +171,14 @@ function setup() {
                 push();
                 strokeWeight(2);
                 stroke(236,244,243);
-                line(x - halfWidth, y, x + halfWidth, y);
+                line(x, y, x + halfWidth, y);
                 pop();
               
                 // vertical lightest teal line
                 push();
                 strokeWeight(2);
                 stroke(236,244,243);
-                line(x, y - halfWidth, x, y + halfWidth);
+                line(x, y - halfWidth, x, y);
                 pop();
                 }
             }  
