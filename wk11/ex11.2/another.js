@@ -1,10 +1,8 @@
 function draw() {
     createCanvas(windowWidth, windowHeight)
     background(220);
-    frameRate(2);
+    frameRate(1);
     const instance = 50
-    const halfWidth = windowWidth / 2
-    const halfHeight = windowHeight / 2
     
     
     for (let i = 0; i < instance; i += instance/5) {
