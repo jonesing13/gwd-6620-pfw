@@ -1,0 +1,15 @@
+#root {
+    margin: 0 auto;
+    background: #0137fe;
+    
+}
+
+html {
+    box-sizing: border-box;
+}
+  
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
