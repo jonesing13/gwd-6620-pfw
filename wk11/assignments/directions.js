@@ -3,7 +3,7 @@ function preload() {
 }
   
 function setup() {
-    createCanvas(800,500);
+    createCanvas(500,500);
     colorMode(HSB,360,100,100);
     background(220,100,100);
     palette = floor(random(5));
@@ -23,7 +23,7 @@ function draw() {
 
     if (x > width || x < 0) {
         // contain in canvas (switch direction)
-        dirX ++; // tweak trajectory
+        dirX += 5; // tweak trajectory
         dirX *= -1;
     }
     if (y > height || y < 0) {
