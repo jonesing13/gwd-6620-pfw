@@ -68,6 +68,6 @@ function keyTyped() {
     }
 
     if(key == "s") {
-        save("jones_moving_ball.png")
+        save(palette + "_moving_ball.png")
     }
 }
