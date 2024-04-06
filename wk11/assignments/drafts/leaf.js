@@ -1,7 +1,5 @@
-// two curveVertexes mirrored with sliders
 
 let ang;
-let slider1, slider2, slider3;
 let x1 = 30;
 let y1 = 0;
 let x4 = 480;
@@ -14,7 +12,7 @@ function setup() {
 }
 
 function draw() {
-  background(random(100,200));
+  background(220);
   translate(0, 250); // 
   x2 = random(100,250);
   y2 = random(50,200);
