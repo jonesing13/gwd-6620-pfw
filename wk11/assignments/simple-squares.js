@@ -15,7 +15,7 @@ function setup() {
 // you can do amazing things with squares
 function draw() {
 
-    // draw 100 random sized rectangles using colors from the color palette
+    // draw random sized rectangles using colors from the color palette
     for (i = 0; i < iterations; i++) {
         opacity = random(50,75);
 
@@ -23,7 +23,7 @@ function draw() {
         fill(h,s,b, opacity);
         noStroke();
 
-        rect(random(-width * 0.1, width), random(-height * 0.1, height),random(50,width / 5))
+        rect(random(-width * 0.1, width), random(-height * 0.1, height),random(50,width / 5),random(50,width / 5))
 
         //rotate(random(30));
     }

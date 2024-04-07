@@ -60,6 +60,8 @@ function overlaySquares() {
             getColor(floor(random(5)));
             stroke(h,s,b);
             strokeWeight(random(5));
+            
+            // sqaures
             rect(x+random(-20,20), y+(-5,5), random(sizeShape))
         }
     }

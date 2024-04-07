@@ -23,9 +23,9 @@ function draw() {
     for (x = numAcross; x < width - numAcross + 1 ; x += sizeShape) {
         for (y = numAcross; y < height - numAcross + 1 ; y += sizeShape) {
             col = floor(random(5)); // get random integer, 0-4
-            getColor(col); // select a color for rectangle, and we know the # (col)
+            getColor(col); // select a color for use, and we know the # of the palette (col)
             fill(h,s,b);
-            randPicker = random(3)
+            randPicker = random(3) // enable us to do one of 3 things (below)
             randNum = random(5)
             if (randPicker < 1) {
                 rect(x, y, sizeShape * random(randNum))
