@@ -7,7 +7,7 @@ function setup() {
     background("white");
     colorMode(HSB,360,100,100,100);//enable  HSB (due to attached files) and opacity for later blending
     palette = floor(random(5));
-    iterations = random(100,250);
+    iterations = random(250,500);
     
 
 }
