@@ -39,3 +39,9 @@ function getColor(col1) {
     s = int(table.get(palette, col1 * 3 + 1));
     b = int(table.get(palette, col1 * 3 + 2));
 }
+
+function keyTyped() {
+    if(key == "s") {
+        save("simple-squares.png")
+    }
+}
