@@ -1,7 +1,5 @@
 #root {
-    margin: 0 auto;
-    background: #0137fe;
-    
+    margin: 0 auto; 
 }
 
 html {
@@ -12,4 +10,18 @@ html {
 *:before,
 *:after {
     box-sizing: inherit;
+}
+
+body {
+    margin: 0 auto;
+    padding: 1rem 3rem;
+    font-family: "Trebuchet MS", Helvetica, Verdana, Arial, sans-serif; 
+}
+
+ul {
+    padding-bottom: 1rem;
+}
+
+p {
+    font-style: italic;
 }

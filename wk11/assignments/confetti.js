@@ -3,7 +3,8 @@ function preload() {
 }
   
 function setup() {
-    createCanvas(windowWidth,windowHeight);
+    //createCanvas(windowWidth,windowHeight);
+    createCanvas(500,500);
     colorMode(HSB,360,100,100);
     rectMode(CENTER);
     palette = floor(random(5));
@@ -25,13 +26,14 @@ function draw() {
             getColor(col); // select a color for rectangle, and we know the # (col)
             fill(h,s,b);
             randPicker = random(3)
+            randNum = random(5)
             if (randPicker < 1) {
-                rect(x, y, sizeShape * random(5))
+                rect(x, y, sizeShape * random(randNum))
             } else if (randPicker < 2) {
-                circle(x, y, sizeShape * random(7))
+                circle(x, y, sizeShape * random(randNum))
             } else {
-                triangle(x, y - random(sizeShape), x - random(sizeShape), y + random(sizeShape), x + random(sizeShape), y + random(sizeShape))
-                rotate(sizeShape);
+                triangle(x, y - random(sizeShape * random(randNum)), x - random(sizeShape * random(randNum)), y + random(sizeShape * random(randNum)), x + random(sizeShape * random(randNum)), y + random(sizeShape * random(randNum)))
+                rotate(sizeShape * random(5));
             }
         }
     }

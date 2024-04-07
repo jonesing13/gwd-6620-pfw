@@ -55,6 +55,7 @@ function getColor(col1) {
 }
 
 function keyTyped() {
+/*
     // stops circle if "b" is typed
     if(key == "p") {
         pause *= 1;
@@ -66,7 +67,7 @@ function keyTyped() {
     } else {
         loop();
     }
-
+*/
     if(key == "s") {
         save(palette + "_moving_ball.png")
     }

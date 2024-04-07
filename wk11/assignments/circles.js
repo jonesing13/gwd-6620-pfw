@@ -6,7 +6,7 @@ function preload() {
 // stretch your OWN brain
 
 function setup() {
-    createCanvas(windowWidth,windowHeight);
+    createCanvas(800,800);
     colorMode(HSB,360,100,100);
     background(250);
     palette = floor(random(5));
