@@ -22,7 +22,7 @@ function setup() {
     song.play();
     fft = new p5.FFT(0.9, 64);
     // when user clicks canvas, toggle song
-    // why doesn't this seem to work on the first click?
+    // why doesn't this seem to work on the first click (takes 2 clicks to start)?
     cnv.mouseClicked(toggleSong);
     w = width / 64;
     
