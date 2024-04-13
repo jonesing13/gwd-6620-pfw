@@ -45,18 +45,18 @@ function setup() {
 function draw() {
     noStroke();
     fill('white');
-    text('press and hold a, s, d, and f to play some flute sounds', 150, 50);
+    text('PRESS and hold a, s, d, and f to play some flute sounds', 150, 50);
     
     //drawSlider();
 
 }
 
 // what if i could make a rectangle that you could "push" right or left to make the sound play?
-function drawSlider() {
-    stroke(47,100,100);
-    fill(161, 86, 100);
-    slider = rect(sliderX, sliderY, fluteWidth, sliderHeight, 20, 20, 20, 20)   
-}
+// function drawSlider() {
+//     stroke(47,100,100);
+//     fill(161, 86, 100);
+//     slider = rect(sliderX, sliderY, fluteWidth, sliderHeight, 20, 20, 20, 20)   
+// }
 
 
 function keyPressed() {
@@ -93,6 +93,8 @@ function keyPressed() {
 }
 
 function keyReleased() {
+    // play no sound if user isn't pressing a key
+
     // a
     if (keyCode == 65) {
         // redraw flute shape
