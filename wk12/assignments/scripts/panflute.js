@@ -45,7 +45,7 @@ function setup() {
 function draw() {
     noStroke();
     fill('white');
-    text('PRESS and hold a, s, d, and f to play some flute sounds', 150, 50);
+    text('Press and hold a, s, d, and f to play some flute sounds.', 150, 50);
     
     //drawSlider();
 
