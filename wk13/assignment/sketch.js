@@ -1,12 +1,12 @@
 var points = [];
 
 function setup() {
-    createCanvas(800, 600);
+    createCanvas(windowWidth, windowHeight);
     background(10, 20, 30);
     angleMode(DEGREES);
-    noiseDetail(1);
+    //noiseDetail(1);
 
-    var density = 50;
+    var density = random(50, 150);
     var gap = width / density;
 
     //create starting points
@@ -42,7 +42,7 @@ function draw() {
         fill(r, g, b);
 
         // angle that each point will move
-        var angle = map(noise(points[i].x * rate, points[i].y * rate), 0, 1, 0, 720);
+        var angle = map(noise(points[i].x * rate, points[i].y * rate), 0, 1, 0, 5000);
         // add vector to each point based on angle
         points[i].add(createVector(cos(angle), sin(angle)));
 
