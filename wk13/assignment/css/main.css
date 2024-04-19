@@ -12,5 +12,7 @@ html {
 
 body {
     margin: 0 auto;
-    padding: 0rem;
+
+    text-align: center;
+    background: rgb(10, 20, 30);
 }
