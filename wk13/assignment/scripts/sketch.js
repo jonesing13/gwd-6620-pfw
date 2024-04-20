@@ -37,8 +37,8 @@ function draw() {
     }
 
     for(var i = 0; i < max; i++) {
-        var r = map(points[i].x, 0, width, 50, 255);
-        var g = map(points[i].y, 0, height, 50, 255);
+        var r = map(points[i].x, 0, width, 50, 170);
+        var g = map(points[i].y, 0, height, 50, 170);
         //var b = map(points[i].x, 0, width, 255, 50);
         fill(r, g, 70); // focus on reds and greens
 
