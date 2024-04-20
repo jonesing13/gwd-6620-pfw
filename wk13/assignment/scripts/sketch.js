@@ -38,8 +38,8 @@ function draw() {
     for(var i = 0; i < max; i++) {
         var r = map(points[i].x, 0, width, 50, 255);
         var g = map(points[i].y, 0, height, 50, 255);
-        var b = map(points[i].x, 0, width, 255, 50);
-        fill(r, g, b);
+        //var b = map(points[i].x, 0, width, 255, 50);
+        fill(r, g, 0); // reds, greens (to stick w brown/nature colors)
 
         // angle that each point will move
         var angle = map(noise(points[i].x * rate, points[i].y * rate), 0, 1, 0, 5000);
