@@ -1,19 +1,13 @@
 var points = [];
 
-var r1
-var r2
-var g1
-var g2
-var b1
-var b2
-
 function setup() {
     createCanvas(windowWidth, windowHeight);
     background(10, 20, 30);
     angleMode(DEGREES);
-    noiseDetail(1);
+    noiseDetail(2, 1);
 
-    var density = random(70, 100);
+    var density = 50;
+    //var density = random(50, 150);
     var gap = width / density;
 
     //create starting points
@@ -25,18 +19,11 @@ function setup() {
         }
     }
 
-    // to randomize the lines (that are drawn one-by-one), shuffle the point array
+    // to randomize which lines are drawn on the grid (that are drawn one-by-one), shuffle the point array
     shuffle(points, true);
-
-    r1 = random(10);
-    r2 = random(10);
-    g1 = random(10);
-    g2 = random(10);
-    b1 = random(10);
-    b2 = random(10);
-
-    rate = random(0.005, 0.01); // use with noise method
-
+    // use with noise method to control rate of lines
+    rate = 0.1;
+    //rate = random(0.005, 0.01); 
 }
 
 function draw() {
@@ -50,25 +37,18 @@ function draw() {
         var max = points.length;
     }
 
-    // swap points.length to max for the loop
     for(var i = 0; i < max; i++) {
-        var r = map(points[i].x, 0, width, r1, r2);
-        var g = map(points[i].y, 0, height, g1, g2);
-        var b = map(points[i].x, 0, width, b1, b2);
-        var alpha = map(dist(width / 2, height / 2, points[i].x, points[i].y), 0, 350, 255, 0); // fade close to edge
-        fill(r, g, b, alpha);
+        var r = map(points[i].x, 0, width, 50, 255);
+        var g = map(points[i].y, 0, height, 50, 255);
+        var b = map(points[i].x, 0, width, 255, 50);
+        fill(r, g, b);
 
         // angle that each point will move
-        var angle = map(noise(points[i].x * rate, points[i].y * rate), 0, 1, 0, 720);
+        var angle = map(noise(points[i].x * rate, points[i].y * rate), 0, 1, 0, 560);
         // add vector to each point based on angle
         points[i].add(createVector(cos(angle), sin(angle)));
 
         // draw a point at each part of the grid
-        ellipse(points[i].x, points[i].y, 1);
-        // contain to a specific space/area
-        // if(dist(width / 2, height / 2, points[i].x, points[i].y) < 300) {
-        //     ellipse(points[i].x, points[i].y, 1);
-        // }
-        
+        ellipse(points[i].x, points[i].y, 2);
     }
 }
