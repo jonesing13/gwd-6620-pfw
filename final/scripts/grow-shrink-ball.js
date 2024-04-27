@@ -37,12 +37,6 @@ function draw() {
     }
 }
 
-function mousePressed() {
-    for (let i = 0; i < balls.length; i ++) {
-        balls[i].clicked(mouseX, mouseY);
-    }
-}
-
 class Ball {
     // set appearance for class/ball(s)
     constructor(index) {
@@ -54,15 +48,6 @@ class Ball {
         // set velocity to help 'move' function below
         this.vel = p5.Vector.random2D()//.mult(2); // random 2D method to create a random vector
     }
-    // detect if user clicks a ball
-    clicked(px, py) {
-        let d = dist(px, py, this.pos.x, this.pos.y)
-        // when clicked, increase radius of ball
-        if ( d < this.radius) {
-            this.radius += 2;
-        }
-    }
-
     // change color of balls when they're touching another ball
     collide() {
         for (var i = 0; i < balls.length; i++) {
@@ -77,11 +62,13 @@ class Ball {
                 fill(173,73,62);
                 this.vel.x *= -1;
                 this.vel.y *= -1;
+                this.radius --;
                 break // break out of loop whenever collision occurs
             } else {
                 // getColor(palette);
                 // fill(h,s,b);
                 fill(12,65,91);
+                this.radius += 0.01;
             }
         }
     }
