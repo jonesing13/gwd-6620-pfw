@@ -1,12 +1,5 @@
 var balls = [];
 
-// load color file
-function preload() {
-    table = loadTable("assets/neon.csv", "csv", "header");
-    //soundFormats('wav');
-    //bumper = loadSound("653201__gameboy__bumper-hit.wav");
-} 
-
 function setup() {
     createCanvas(720, 560);
     colorMode(HSB,360,100,100);
@@ -25,12 +18,14 @@ function draw() {
 
     // iterate thru array
     for ( var i = 0; i < balls.length; i++) {
-        // call user interaction method
-        balls[i].toss();
+        // call addNew method
+        balls[i].addNew();
         // call collide method
         balls[i].collide();
         // call contain method
         balls[i].contain();
+        // call detect method
+        balls[i].detect();
         // call move method
         balls[i].move();
         // call show method
@@ -40,11 +35,19 @@ function draw() {
 
 function mousePressed() {
     // what if mousePressed "popped" the bubble
+    for ( var i = 0; i < balls.length; i++) {
+        // call detect method
+        balls[i].detect();
+    }
+    
+}
+
+function keyPressed() {
     // and space bar?? (or something) added a new one to the array?
-    fill(255, 255, 255);
-    ellipse(mouseX, mouseY, random(10,25));
-    //balls.show(new);
-    //balls.push(new);
+    for ( var i = 0; i < balls.length; i++) {
+        // call addNew method
+        balls[i].addNew();
+    }
 }
 
 class Ball {
@@ -58,13 +61,11 @@ class Ball {
         // set velocity to help 'move' function below
         this.vel = p5.Vector.random2D().mult(0.5); // random 2D method to create a random vector
     }
-    // user interaction
-    toss(px, py) {
-        for (var i = 0; i < balls.length; i++) {
-            var d = dist(px, py, balls[i].pos.x, balls[i].pos.y);
-            if (d < this.radius ) {
-                console.log("hit the bubble");
-            }
+    // add a ball if the user presses SHIFT key
+    addNew() {
+        if (keyCode == SHIFT) {
+            var b = new Ball(); // incorporate 'i' so we can keep track of the balls individually (and they don't use their own location to say they've "collided")
+            balls.push(b); // radius decreases instead of growing 
         }
     }
     // change movement & color of balls when they touch
@@ -111,6 +112,16 @@ class Ball {
             //bumper.play();
         }
     }
+    // mousePressed detect if you "hit" a button
+    detect(px, py) {
+        for (var i = 0; i < balls.length; i++) {
+            var d = dist(px, py, this.pos.x, this.pos.y); //p5.js says: [push.js, line 118] dist() was expecting Number for the second parameter, received an empty variable instead. 
+            if ( d < this.radius + balls[i].radius ) {
+                balls[i].splice();
+                console.log("direct hit!");
+            }
+        }
+    }
     // method to move balls
     move() {
         this.pos.add(this.vel)
@@ -119,7 +130,6 @@ class Ball {
     show() {
         noStroke();
         //fill(50); this is in 'collide' method now
-        let h = random(180, 330); // random hue from aqua/blue/purple/pink ranges
         for (let r = this.radius; r > 0; --r) {
             ellipse(this.pos.x, this.pos.y, this.radius * 2);
         }

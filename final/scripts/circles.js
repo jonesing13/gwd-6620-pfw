@@ -51,16 +51,12 @@ function drawCircles() {
         } 
     }
 
-    if mousePressed {
-
-    }
-
     filter(BLUR,2)
 }
 
-function circlePressed() {
-    if (mouse)
-}
+// function circlePressed() {
+//     if (mousePressed)
+// }
 
 // crosshatch of square outlines
 function crosshatch() {

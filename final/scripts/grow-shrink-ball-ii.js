@@ -1,7 +1,16 @@
 var balls = [];
 
+// load color file
+function preload() {
+    table = loadTable("assets/neon.csv", "csv", "header");
+    //soundFormats('wav');
+    //bumper = loadSound("653201__gameboy__bumper-hit.wav");
+} 
+
 function setup() {
     createCanvas(720, 560);
+    colorMode(HSB,360,100,100);
+    palette = floor(random(5));
 
     for (var i = 0; i < random(15,25); i++) {
         var b = new Ball(i); // incorporate 'i' so we can keep track of the balls individually (and they don't use their own location to say they've "collided")
@@ -10,7 +19,8 @@ function setup() {
 }
 
 function draw() {
-    background(220);
+    background(50,70,10);
+    //crosshatch();
 
     // iterate thru array
         for ( var i = 0; i < balls.length; i++) {
@@ -22,6 +32,8 @@ function draw() {
             balls[i].move();
             // call show method
             balls[i].show();
+            // can i draw an outline of a circle on collision and then that outline grows with each hit?
+                // might be fun to draw a random shape outline (sqaure, triangle, circle) almost like the confetti....
     }
 }
 
@@ -29,10 +41,12 @@ class Ball {
     // set appearance for class/ball(s)
     constructor(index) {
         this.index = index;
-        this.radius = random(25, 50);
+        this.radius = random(3, 45);
+        // TODO: handle items that start touching (since they perpetually go back and forth on velocity and so never move....)
+        // can i adjust this.pos to be less random so they never start touching?
         this.pos = createVector(random(this.radius, width - this.radius), random(this.radius, height - this.radius));
         // set velocity to help 'move' function below
-        this.vel = p5.Vector.random2D().mult(2); // random 2D method to create a random vector
+        this.vel = p5.Vector.random2D().mult(0.5); // random 2D method to create a random vector
     }
     // change color of balls when they're touching another ball
     collide() {
@@ -41,23 +55,19 @@ class Ball {
             var d = dist(this.pos.x, this.pos.y, balls[i].pos.x, balls[i].pos.y);
 
             // is dist shorter than the sum of each ball's radius?
-                // if yes, change color 
+                // if yes, the balls are touching 
                 // AND
-                // bounce off
-            // TODO: handle items that start touching (since they perpetually go back and forth on velocity and so never move....)
+                // make them change color & bounce off each other
             if (d < this.radius + balls[i].radius && this.index !== i) {
-                fill(300,95,55);
+                fill(173,73,62);
                 this.vel.x *= -1;
                 this.vel.y *= -1;
-                // expand radius when elements collide 
-                this.radius += 1;
+                this.radius --;
                 break // break out of loop whenever collision occurs
             } else {
-                // getColor(floor(random(5)));
+                // getColor(palette);
                 // fill(h,s,b);
-                fill(0,100,100);
-                // decrease radius when element doesn't collide
-                this.radius -= 0.1;
+                fill(12,65,91);
             }
         }
     }
@@ -65,9 +75,11 @@ class Ball {
     contain() {
         if (this.pos.x < this.radius || this.pos.x > width - this.radius) {
             this.vel.x *= -1;
+            //bumper.play();
         }
         if (this.pos.y < this.radius || this.pos.y > height - this.radius ) {
             this.vel.y *= -1;
+            //bumper.play();
         }
     }
     // method to move balls
@@ -86,7 +98,6 @@ class Ball {
     }
 }
 
-//this isn't working? didn't preLoad file
 function getColor(col1) {
     h = int(table.get(palette, col1 * 3));
     s = int(table.get(palette, col1 * 3 + 1));
