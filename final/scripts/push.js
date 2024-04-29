@@ -1,7 +1,7 @@
 var balls = [];
 
 function setup() {
-    createCanvas(720, 560);
+    createCanvas(windowWidth, windowHeight);
     colorMode(HSB,360,100,100);
     angleMode(DEGREES);
 
@@ -78,21 +78,21 @@ class Ball {
                 // if yes, the balls are touching & bounce off each other
             if (d < this.radius + balls[i].radius && this.index !== i) {
                 //fill(173,73,62);
-                var rCol = map(sin(this.radius + frameCount), -1, 1, 360, 100);
-                var gCol = map(sin(this.radius + frameCount / 3), -1, 1, 100, 360);
-                var bCol = map(cos(this.radius + frameCount / 7), -1, 1, 150, 360);
+                var rCol = map(sin(this.radius + frameCount), -1, 1, 330, 200);
+                var gCol = map(sin(this.radius + frameCount / 3), -1, 1, 200, 330);
+                var bCol = map(cos(this.radius + frameCount / 7), -1, 1, 150, 240 );
         
                 //stroke(rCol, gCol, bCol);
                 fill(rCol, gCol, bCol);
 
                 this.vel.x *= -1;
                 this.vel.y *= -1;
-                this.radius --;
+                this.radius -= 0.5;
                 break // break out of loop whenever collision occurs
             } else {
-                var rCol = map(sin(this.radius + frameCount), -1, 1, 360, 100);
-                var gCol = map(sin(this.radius + frameCount / 3), -1, 1, 100, 360);
-                var bCol = map(cos(this.radius + frameCount / 7), -1, 1, 150, 360);
+                var rCol = map(sin(this.radius + frameCount), -1, 1, 330, 200);
+                var gCol = map(sin(this.radius + frameCount / 3), -1, 1, 200, 330);
+                var bCol = map(cos(this.radius + frameCount / 7), -1, 1, 150, 240);
         
                 //stroke(rCol, gCol, bCol);
                 fill(rCol, gCol, bCol);
@@ -115,7 +115,9 @@ class Ball {
     // mousePressed detect if you "hit" a button
     detect(px, py) {
         for (var i = 0; i < balls.length; i++) {
-            var d = dist(px, py, this.pos.x, this.pos.y); //p5.js says: [push.js, line 118] dist() was expecting Number for the second parameter, received an empty variable instead. 
+            var d = dist(px, py, this.pos.x, this.pos.y); 
+            // p5.js says: [push.js, line 118] dist() was expecting Number for the first parameter, received an empty variable instead.
+            // p5.js says: [push.js, line 118] dist() was expecting Number for the second parameter, received an empty variable instead. 
             if ( d < this.radius + balls[i].radius ) {
                 balls[i].splice();
                 console.log("direct hit!");
