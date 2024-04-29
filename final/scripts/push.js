@@ -78,9 +78,9 @@ class Ball {
                 // if yes, the balls are touching & bounce off each other
             if (d < this.radius + balls[i].radius && this.index !== i) {
                 //fill(173,73,62);
-                var rCol = map(sin(this.radius + frameCount), -1, 1, 330, 200);
-                var gCol = map(sin(this.radius + frameCount / 3), -1, 1, 200, 330);
-                var bCol = map(cos(this.radius + frameCount / 7), -1, 1, 150, 240 );
+                var rCol = map(sin(this.radius * 4), -1, 1, 330, 200);
+                var gCol = map(sin(this.radius * 0.5 ), -1, 1, 200, 330);
+                var bCol = map(cos(this.radius * 2 ), -1, 1, 150, 240 );
         
                 //stroke(rCol, gCol, bCol);
                 fill(rCol, gCol, bCol);
@@ -90,9 +90,9 @@ class Ball {
                 this.radius -= 0.5;
                 break // break out of loop whenever collision occurs
             } else {
-                var rCol = map(sin(this.radius + frameCount), -1, 1, 330, 200);
-                var gCol = map(sin(this.radius + frameCount / 3), -1, 1, 200, 330);
-                var bCol = map(cos(this.radius + frameCount / 7), -1, 1, 150, 240);
+                var rCol = map(sin(this.radius * 4 ), -1, 1, 330, 200);
+                var gCol = map(sin(this.radius * 0.5 ), -1, 1, 200, 330);
+                var bCol = map(cos(this.radius * 2 ), -1, 1, 150, 240);
         
                 //stroke(rCol, gCol, bCol);
                 fill(rCol, gCol, bCol);
