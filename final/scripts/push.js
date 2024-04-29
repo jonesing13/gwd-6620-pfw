@@ -1,7 +1,7 @@
 var balls = [];
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(700, 500);
     colorMode(HSB,360,100,100);
     angleMode(DEGREES);
 
