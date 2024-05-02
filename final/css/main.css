@@ -14,16 +14,7 @@ html {
 
 body {
     margin: 0 auto;
+    padding-top: 1rem;
     font-family: "Trebuchet MS", Helvetica, Verdana, Arial, sans-serif; 
     text-align: center;
-
-}
-
-ul {
-    padding-bottom: 1rem;
-}
-
-p {
-    padding-top: 1rem;
-    font-style: italic;
 }

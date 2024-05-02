@@ -1,7 +1,7 @@
 var balls = [];
 
 function setup() {
-    createCanvas(700, 500);
+    createCanvas(windowWidth, windowHeight);
     colorMode(HSB,360,100,100);
     angleMode(DEGREES);
 
@@ -41,14 +41,14 @@ function mousePressed() {
         // this needed the mouse data for px and py
         balls[i].detect(mouseX, mouseY, balls);
     }
-    
 }
 
 function keyPressed() {
-    // and space bar?? (or something) added a new one to the array?
+    // add a new ball to the array
     // I'd say we want to create a new instance of the class here and not on the class itself
     if(keyCode === SHIFT) {
-        balls.push(new Ball(balls.length + 1))
+        balls.push(new Ball(balls.length))
+
         console.log(balls)
     }
 }
@@ -75,9 +75,9 @@ class Ball {
                 // if yes, the balls are touching & bounce off each other
             if (d < this.radius + balls[i].radius && this.index !== i) {
                 //fill(173,73,62);
-                var rCol = map(sin(this.radius * 4), -1, 1, 330, 200);
-                var gCol = map(sin(this.radius * 0.5 ), -1, 1, 200, 330);
-                var bCol = map(cos(this.radius * 2 ), -1, 1, 150, 240 );
+                var rCol = map(sin(this.radius * 4), -1, 1, 300, 170);
+                var gCol = map(sin(this.radius * 0.5 ), -1, 1, 170, 300);
+                var bCol = map(cos(this.radius * 2 ), -1, 1, 150, 200 );
                 //stroke(rCol, gCol, bCol);
                 fill(rCol, gCol, bCol);
 
@@ -88,9 +88,9 @@ class Ball {
                 this.radius -= 0.5;
                 break // break out of loop whenever collision occurs
             } else {
-                var rCol = map(sin(this.radius * 4 ), -1, 1, 330, 200);
-                var gCol = map(sin(this.radius * 0.5 ), -1, 1, 200, 330);
-                var bCol = map(cos(this.radius * 2 ), -1, 1, 150, 240);
+                var rCol = map(sin(this.radius * 4 ), -1, 1, 300, 170);
+                var gCol = map(sin(this.radius * 0.5 ), -1, 1, 170, 300);
+                var bCol = map(cos(this.radius * 2 ), -1, 1, 150, 200);
                 //stroke(rCol, gCol, bCol);
                 fill(rCol, gCol, bCol);
 
@@ -118,6 +118,9 @@ class Ball {
         if ( d < this.radius ) {
             // remove single item from the array
             ballList.splice(this.index, 1);
+            ballList.forEach((ball, i) => {
+                ball.index = i;
+            })
             console.log("you hit the ball at position: ", this.index, {d});
         } 
     }
