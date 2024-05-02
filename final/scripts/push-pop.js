@@ -25,8 +25,8 @@ function draw() {
         balls[i].collide();
         // call contain method
         balls[i].contain();
-        // // call detect method
-        // balls[i].detect(balls);
+        // call detect method
+        //balls[i].detect();
         // call move method
         balls[i].move();
         // call show method
@@ -65,7 +65,7 @@ class Ball {
         this.vel = p5.Vector.random2D().mult(0.5); // random 2D method to create a random vector
     }
 
-    // change movement & color of balls when they touch
+    // change movement, color, & size of balls when they touch
     collide() {
         for (var i = 0; i < balls.length; i++) {
             // store the distance between balls in a variable
@@ -78,22 +78,23 @@ class Ball {
                 var rCol = map(sin(this.radius * 4), -1, 1, 330, 200);
                 var gCol = map(sin(this.radius * 0.5 ), -1, 1, 200, 330);
                 var bCol = map(cos(this.radius * 2 ), -1, 1, 150, 240 );
-        
                 //stroke(rCol, gCol, bCol);
                 fill(rCol, gCol, bCol);
 
+                // change direction after collision
                 this.vel.x *= -1;
                 this.vel.y *= -1;
+                // shrink radius when balls touch
                 this.radius -= 0.5;
                 break // break out of loop whenever collision occurs
             } else {
                 var rCol = map(sin(this.radius * 4 ), -1, 1, 330, 200);
                 var gCol = map(sin(this.radius * 0.5 ), -1, 1, 200, 330);
                 var bCol = map(cos(this.radius * 2 ), -1, 1, 150, 240);
-        
                 //stroke(rCol, gCol, bCol);
                 fill(rCol, gCol, bCol);
 
+                // grow radius when ball is not touching
                 this.radius += 0.01;
             }
         }
