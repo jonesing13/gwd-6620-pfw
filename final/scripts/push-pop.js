@@ -1,5 +1,12 @@
 var balls = [];
 
+function preload() {
+    soundFormats('wav');
+
+    ballPop = loadSound('./assets/545200__theplax__pop-2.wav');
+    ballAdd = loadSound('./assets/523423__andersmmg__bloop.wav');
+}
+
 function setup() {
     createCanvas(windowWidth, windowHeight);
     colorMode(HSB,360,100,100);
@@ -47,9 +54,9 @@ function keyPressed() {
     // add a new ball to the array
     // I'd say we want to create a new instance of the class here and not on the class itself
     if(keyCode === SHIFT) {
-        balls.push(new Ball(balls.length))
-
-        console.log(balls)
+        balls.push(new Ball(balls.length));
+        ballAdd.play();
+        console.log(balls);
     }
 }
 
@@ -121,6 +128,7 @@ class Ball {
             ballList.forEach((ball, i) => {
                 ball.index = i;
             })
+            ballPop.play();
             console.log("you hit the ball at position: ", this.index, {d});
         } 
     }
