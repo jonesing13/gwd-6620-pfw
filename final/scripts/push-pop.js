@@ -5,7 +5,7 @@ function setup() {
     colorMode(HSB,360,100,100);
     angleMode(DEGREES);
 
-    for (var i = 0; i < random(15,25); i++) {
+    for (var i = 0; i < random(15, 25); i++) {
         var b = new Ball(i); // incorporate 'i' so we can keep track of the balls individually (and they don't use their own location to say they've "collided")
         balls.push(b);
     }
@@ -57,7 +57,7 @@ class Ball {
     // set appearance for class/ball(s)
     constructor(index) {
         this.index = index;
-        this.radius = random(3, 45);
+        this.radius = random(5, 75);
         // TODO: handle items that start touching (since they perpetually go back and forth on velocity and so never move....)
         // can i adjust this.pos to be less random so they never start touching?
         this.pos = createVector(random(this.radius, width - this.radius), random(this.radius, height - this.radius));
@@ -116,6 +116,7 @@ class Ball {
         // console.log({d})
         // since we're already looping thru the balls in the mousePressed fn and calling detect on each ball, we don't need to run the loop again
         if ( d < this.radius ) {
+            // remove single item from the array
             ballList.splice(this.index, 1);
             console.log("you hit the ball at position: ", this.index, {d});
         } 
