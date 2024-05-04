@@ -48,15 +48,15 @@ function draw() {
 }
 
 function radialGradient(
-    sX, sY, sR, eX, eY, eR, colorS, colorE
+    sX, sY, sR, eX, eY, eR, colorS, colorM, colorE
 ) {
     // Adapted from https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createLinearGradient
     gradient = ctx.createRadialGradient(
         sX, sY, sR, eX, eY, eR
     );
     gradient.addColorStop(0, colorS);
+    gradient.addColorStop(0.9, colorM);
     gradient.addColorStop(1, colorE);
-    //gradient.addColorStop(1, "white");
     ctx.fillStyle = gradient;
 }
 
@@ -105,9 +105,10 @@ class Ball {
 
                 radialGradient(
                     width/2-40, height/2-120, 0,
-                    width/2-40, height/2-120, 380,
-                    color(190, 100, 100, 100), 
-                    color(310, 100, 100, 100)
+                    width/2-40, height/2-120, height/2,
+                    color(190, 100, 100, 100),
+                    color(0, gCol, 100), 
+                    color(rCol, 100, 100, 100)
                 )
 
                 // change direction after collision
@@ -125,9 +126,10 @@ class Ball {
 
                 radialGradient(
                     width/2-40, height/2-120, 0,
-                    width/2-40, height/2-120, 380,
-                    color(190, 100, 100, 100), 
-                    color(310, 100, 100, 100)
+                    width/2-40, height/2-120, height/2,
+                    color(190, 100, 100, 100),
+                    color(0, gCol, 100),
+                    color(rCol, 100, 100, 100)
                 )
 
                 // grow radius when ball is not touching
