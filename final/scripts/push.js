@@ -1,52 +1,71 @@
 var balls = [];
 
+function preload() {
+    soundFormats('wav');
+
+    ballPop = loadSound('./assets/545200__theplax__pop-2.wav');
+    ballAdd = loadSound('./assets/523423__andersmmg__bloop.wav');
+}
+
 function setup() {
-    createCanvas(700, 500);
+    createCanvas(windowWidth, windowHeight - 210);
     colorMode(HSB,360,100,100);
     angleMode(DEGREES);
 
-    for (var i = 0; i < random(15,25); i++) {
+    for (var i = 0; i < random(15, 25); i++) {
         var b = new Ball(i); // incorporate 'i' so we can keep track of the balls individually (and they don't use their own location to say they've "collided")
         balls.push(b);
     }
 }
 
 function draw() {
-    background(220, 100, 20);
+    background('white');
     //directionalLight(0,0,0, 1, -1, -0.25);
     //crosshatch();
 
     // iterate thru array
+    console.log(balls.length)
     for ( var i = 0; i < balls.length; i++) {
-        // call addNew method
-        balls[i].addNew();
         // call collide method
         balls[i].collide();
         // call contain method
         balls[i].contain();
         // call detect method
-        balls[i].detect();
+        //balls[i].detect();
         // call move method
         balls[i].move();
         // call show method
         balls[i].show();
     }
+
+    // ?? show message when no bubbles left
+    if ( balls.length === 0 ) {
+        textColor('white');
+        text('You\'re not a quitter,\n', 200, 400);
+        fill('white');
+        var resetButton = createButton('Press shift!', 250, 500);
+        resetButton.mousePressed(pageReset);
+    }
+}
+
+function pageReset() {
+    window.location.reload(true);
 }
 
 function mousePressed() {
     // what if mousePressed "popped" the bubble
     for ( var i = 0; i < balls.length; i++) {
-        // call detect method
-        balls[i].detect();
+        // call detect method w/ mouse data for px and py
+        balls[i].detect(mouseX, mouseY, balls);
     }
-    
 }
 
 function keyPressed() {
-    // and space bar?? (or something) added a new one to the array?
-    for ( var i = 0; i < balls.length; i++) {
-        // call addNew method
-        balls[i].addNew();
+    // add a new ball to the array by creating a new instance of the class here (rather than a fn in the class itself)
+    if(keyCode === SHIFT) {
+        balls.push(new Ball(balls.length));
+        ballAdd.play();
+        console.log(balls);
     }
 }
 
@@ -54,21 +73,13 @@ class Ball {
     // set appearance for class/ball(s)
     constructor(index) {
         this.index = index;
-        this.radius = random(3, 45);
-        // TODO: handle items that start touching (since they perpetually go back and forth on velocity and so never move....)
-        // can i adjust this.pos to be less random so they never start touching?
+        this.radius = random(5, 75);
         this.pos = createVector(random(this.radius, width - this.radius), random(this.radius, height - this.radius));
         // set velocity to help 'move' function below
         this.vel = p5.Vector.random2D().mult(0.5); // random 2D method to create a random vector
     }
-    // add a ball if the user presses SHIFT key
-    addNew() {
-        if (keyCode == SHIFT) {
-            var b = new Ball(); // incorporate 'i' so we can keep track of the balls individually (and they don't use their own location to say they've "collided")
-            balls.push(b); // radius decreases instead of growing 
-        }
-    }
-    // change movement & color of balls when they touch
+
+    // change movement, color, & size of balls when they touch
     collide() {
         for (var i = 0; i < balls.length; i++) {
             // store the distance between balls in a variable
@@ -78,25 +89,26 @@ class Ball {
                 // if yes, the balls are touching & bounce off each other
             if (d < this.radius + balls[i].radius && this.index !== i) {
                 //fill(173,73,62);
-                var rCol = map(sin(this.radius * 4), -1, 1, 330, 200);
-                var gCol = map(sin(this.radius * 0.5 ), -1, 1, 200, 330);
-                var bCol = map(cos(this.radius * 2 ), -1, 1, 150, 240 );
-        
+                var rCol = map(sin(this.radius * 4), -1, 1, 300, 30);
+                var gCol = map(sin(this.radius * 0.5 ), -1, 1, 30, 250);
+                var bCol = map(cos(this.radius * 2 ), -1, 1, 50, 200 );
                 //stroke(rCol, gCol, bCol);
                 fill(rCol, gCol, bCol);
 
+                // change direction after collision
                 this.vel.x *= -1;
                 this.vel.y *= -1;
+                // shrink radius when balls touch
                 this.radius -= 0.5;
                 break // break out of loop whenever collision occurs
             } else {
-                var rCol = map(sin(this.radius * 4 ), -1, 1, 330, 200);
-                var gCol = map(sin(this.radius * 0.5 ), -1, 1, 200, 330);
-                var bCol = map(cos(this.radius * 2 ), -1, 1, 150, 240);
-        
+                var rCol = map(sin(this.radius * 4 ), -1, 1, 300, 30);
+                var gCol = map(sin(this.radius * 0.5 ), -1, 1, 30, 250);
+                var bCol = map(cos(this.radius * 2 ), -1, 1, 50, 200);
                 //stroke(rCol, gCol, bCol);
                 fill(rCol, gCol, bCol);
 
+                // grow radius when ball is not touching
                 this.radius += 0.01;
             }
         }
@@ -105,24 +117,25 @@ class Ball {
     contain() {
         if (this.pos.x < this.radius || this.pos.x > width - this.radius) {
             this.vel.x *= -1;
-            //bumper.play();
         }
         if (this.pos.y < this.radius || this.pos.y > height - this.radius ) {
             this.vel.y *= -1;
-            //bumper.play();
         }
     }
     // mousePressed detect if you "hit" a button
-    detect(px, py) {
-        for (var i = 0; i < balls.length; i++) {
-            var d = dist(px, py, this.pos.x, this.pos.y); 
-            // p5.js says: [push.js, line 118] dist() was expecting Number for the first parameter, received an empty variable instead.
-            // p5.js says: [push.js, line 118] dist() was expecting Number for the second parameter, received an empty variable instead. 
-            if ( d < this.radius + balls[i].radius ) {
-                balls[i].splice();
-                console.log("direct hit!");
-            }
-        }
+    detect(px, py, ballList) {
+        var d = dist(px, py, this.pos.x, this.pos.y); 
+        // console.log({d})
+        // since we're already looping thru the balls in the mousePressed fn and calling detect on each ball, we don't need to run the loop again
+        if ( d < this.radius ) {
+            // remove single item from the array
+            ballList.splice(this.index, 1);
+            ballList.forEach((ball, i) => {
+                ball.index = i;
+            })
+            ballPop.play();
+            console.log("you hit the ball at position: ", this.index, {d});
+        } 
     }
     // method to move balls
     move() {

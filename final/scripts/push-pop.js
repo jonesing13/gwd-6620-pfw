@@ -8,7 +8,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(windowWidth, windowHeight - 210);
     colorMode(HSB,360,100,100);
     angleMode(DEGREES);
 
@@ -26,8 +26,6 @@ function draw() {
     // iterate thru array
     console.log(balls.length)
     for ( var i = 0; i < balls.length; i++) {
-        // call addNew method
-        // balls[i].addNew();
         // call collide method
         balls[i].collide();
         // call contain method
@@ -39,20 +37,31 @@ function draw() {
         // call show method
         balls[i].show();
     }
+
+    // ?? show message when no bubbles left
+    if ( balls.length === 0 ) {
+        textColor('white');
+        text('You\'re not a quitter,\n', 200, 400);
+        fill('white');
+        var resetButton = createButton('Press shift!', 250, 500);
+        resetButton.mousePressed(pageReset);
+    }
+}
+
+function pageReset() {
+    window.location.reload(true);
 }
 
 function mousePressed() {
     // what if mousePressed "popped" the bubble
     for ( var i = 0; i < balls.length; i++) {
-        // call detect method
-        // this needed the mouse data for px and py
+        // call detect method w/ mouse data for px and py
         balls[i].detect(mouseX, mouseY, balls);
     }
 }
 
 function keyPressed() {
-    // add a new ball to the array
-    // I'd say we want to create a new instance of the class here and not on the class itself
+    // add a new ball to the array by creating a new instance of the class here (rather than a fn in the class itself)
     if(keyCode === SHIFT) {
         balls.push(new Ball(balls.length));
         ballAdd.play();
@@ -65,8 +74,6 @@ class Ball {
     constructor(index) {
         this.index = index;
         this.radius = random(5, 75);
-        // TODO: handle items that start touching (since they perpetually go back and forth on velocity and so never move....)
-        // can i adjust this.pos to be less random so they never start touching?
         this.pos = createVector(random(this.radius, width - this.radius), random(this.radius, height - this.radius));
         // set velocity to help 'move' function below
         this.vel = p5.Vector.random2D().mult(0.5); // random 2D method to create a random vector
@@ -82,8 +89,8 @@ class Ball {
                 // if yes, the balls are touching & bounce off each other
             if (d < this.radius + balls[i].radius && this.index !== i) {
                 //fill(173,73,62);
-                var rCol = map(sin(this.radius * 4), -1, 1, 300, 170);
-                var gCol = map(sin(this.radius * 0.5 ), -1, 1, 170, 300);
+                var rCol = map(sin(this.radius * 4), -1, 1, 320, 230);
+                var gCol = map(sin(this.radius * 0.5 ), -1, 1, 230, 320);
                 var bCol = map(cos(this.radius * 2 ), -1, 1, 150, 200 );
                 //stroke(rCol, gCol, bCol);
                 fill(rCol, gCol, bCol);
@@ -95,8 +102,8 @@ class Ball {
                 this.radius -= 0.5;
                 break // break out of loop whenever collision occurs
             } else {
-                var rCol = map(sin(this.radius * 4 ), -1, 1, 300, 170);
-                var gCol = map(sin(this.radius * 0.5 ), -1, 1, 170, 300);
+                var rCol = map(sin(this.radius * 4 ), -1, 1, 320, 230);
+                var gCol = map(sin(this.radius * 0.5 ), -1, 1, 230, 320);
                 var bCol = map(cos(this.radius * 2 ), -1, 1, 150, 200);
                 //stroke(rCol, gCol, bCol);
                 fill(rCol, gCol, bCol);
@@ -110,11 +117,9 @@ class Ball {
     contain() {
         if (this.pos.x < this.radius || this.pos.x > width - this.radius) {
             this.vel.x *= -1;
-            //bumper.play();
         }
         if (this.pos.y < this.radius || this.pos.y > height - this.radius ) {
             this.vel.y *= -1;
-            //bumper.play();
         }
     }
     // mousePressed detect if you "hit" a button

@@ -4,6 +4,7 @@
 
 html {
     box-sizing: border-box;
+    
 }
   
 *,
@@ -13,8 +14,17 @@ html {
 }
 
 body {
+    background-color: #00102b;
+    color: white;
     margin: 0 auto;
-    padding-top: 1rem;
     font-family: "Trebuchet MS", Helvetica, Verdana, Arial, sans-serif; 
     text-align: center;
+}
+
+p:first-of-type {
+    padding-top: 2rem;
+}
+
+p:last-of-type {
+    padding-bottom: 3rem;
 }
