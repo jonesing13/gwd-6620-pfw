@@ -140,7 +140,7 @@ class Ball {
                 // )
 
                 // grow radius when ball is not touching
-                this.radius += 0.01;
+                this.radius += 0.02;
             }
         }
     }
