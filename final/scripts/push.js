@@ -1,4 +1,5 @@
 var balls = [];
+let ctx;
 
 function preload() {
     soundFormats('wav');
@@ -11,6 +12,7 @@ function setup() {
     createCanvas(windowWidth, windowHeight - 210);
     colorMode(HSB,360,100,100);
     angleMode(DEGREES);
+    ctx = canvas.getContext('2d');
 
     for (var i = 0; i < random(15, 25); i++) {
         var b = new Ball(i); // incorporate 'i' so we can keep track of the balls individually (and they don't use their own location to say they've "collided")
@@ -41,15 +43,21 @@ function draw() {
     // ?? show message when no bubbles left
     if ( balls.length === 0 ) {
         textColor('white');
-        text('You\'re not a quitter,\n', 200, 400);
-        fill('white');
-        var resetButton = createButton('Press shift!', 250, 500);
-        resetButton.mousePressed(pageReset);
+        text('press shift!', 200, 400);
     }
 }
 
-function pageReset() {
-    window.location.reload(true);
+function radialGradient(
+    sX, sY, sR, eX, eY, eR, colorS, colorE
+) {
+    // Adapted from https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createLinearGradient
+    gradient = ctx.createRadialGradient(
+        sX, sY, sR, eX, eY, eR
+    );
+    gradient.addColorStop(0, colorS);
+    gradient.addColorStop(1, colorE);
+    //gradient.addColorStop(1, "white");
+    ctx.fillStyle = gradient;
 }
 
 function mousePressed() {
@@ -93,7 +101,14 @@ class Ball {
                 var gCol = map(sin(this.radius * 0.5 ), -1, 1, 30, 250);
                 var bCol = map(cos(this.radius * 2 ), -1, 1, 50, 200 );
                 //stroke(rCol, gCol, bCol);
-                fill(rCol, gCol, bCol);
+                // fill(rCol, gCol, bCol);
+
+                radialGradient(
+                    width/2-40, height/2-120, 0,
+                    width/2-40, height/2-120, 380,
+                    color(190, 100, 100, 100), 
+                    color(310, 100, 100, 100)
+                )
 
                 // change direction after collision
                 this.vel.x *= -1;
@@ -105,8 +120,15 @@ class Ball {
                 var rCol = map(sin(this.radius * 4 ), -1, 1, 300, 30);
                 var gCol = map(sin(this.radius * 0.5 ), -1, 1, 30, 250);
                 var bCol = map(cos(this.radius * 2 ), -1, 1, 50, 200);
-                //stroke(rCol, gCol, bCol);
-                fill(rCol, gCol, bCol);
+                // //stroke(rCol, gCol, bCol);
+                // fill(rCol, gCol, bCol);
+
+                radialGradient(
+                    width/2-40, height/2-120, 0,
+                    width/2-40, height/2-120, 380,
+                    color(190, 100, 100, 100), 
+                    color(310, 100, 100, 100)
+                )
 
                 // grow radius when ball is not touching
                 this.radius += 0.01;

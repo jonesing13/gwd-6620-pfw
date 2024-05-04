@@ -59,13 +59,6 @@ function radialGradient(
 //     ctx.fillStyle = gradient;
 // }
 
-function radialGradient(sX, sY, sR, eX, eY, eR, colorS, colorE) {
-    // Adapted from https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createLinearGradient
-    gradient = ctx.createRadialGradient(sX, sY, eX, eY);
-    gradient.addColorStop(0, colorS);
-    gradient.addColorStop(1, colorE);
-    ctx.fillStyle = gradient;
-}
 
 // let ctx;
 
