@@ -32,6 +32,25 @@ function radialGradient(
 }
 
 
+// let startingX = 100,
+//     startingY = 100;
+
+// function setup() {
+
+// }
+
+
+// function draw() {
+//     background(220);
+//     let gradient = drawingContext.createLinearGradient(25, startingY, 25, 100);
+//     gradient.addColorStop(0, color(310, 100, 100, 100));
+//     gradient.addColorStop(0, color(250, 100, 100, 100));
+//     drawingContext.fillStyle = gradient;
+//     ellipse(startingX, 300, 300);
+//     startingX += 1;
+// }
+
+
 
 
 

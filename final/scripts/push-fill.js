@@ -57,7 +57,7 @@ function radialGradient(
     gradient.addColorStop(0, colorS);
     gradient.addColorStop(0.9, colorM);
     gradient.addColorStop(1, colorE);
-    ctx.strokeStyle = gradient;
+    ctx.fillStyle = gradient;
 }
 
 function mousePressed() {
@@ -99,10 +99,9 @@ class Ball {
                 //fill(173,73,62);
                 var rCol = map(sin(this.radius * 4), -1, 1, 300, 160);
                 var gCol = map(sin(this.radius * 0.5 ), -1, 1, 200, 250);
-                var bCol = map(cos(this.radius * 2 ), -1, 1, 100, 220 );
-                
-                stroke(rCol, gCol, bCol);
-                //fill(rCol, gCol, bCol);
+                var bCol = map(cos(this.radius * 2 ), -1, 1, 50, 200 );
+                //stroke(rCol, gCol, bCol);
+                fill(rCol, gCol, bCol);
 
                 // for performance reasons, omitting
                 // radialGradient(
@@ -122,9 +121,9 @@ class Ball {
             } else {
                 var rCol = map(sin(this.radius * 4 ), -1, 1, 300, 160);
                 var gCol = map(sin(this.radius * 0.5 ), -1, 1, 200, 250);
-                var bCol = map(cos(this.radius * 2 ), -1, 1, 100, 220);
-                stroke(rCol, gCol, bCol);
-                //fill(rCol, gCol, bCol);
+                var bCol = map(cos(this.radius * 2 ), -1, 1, 50, 200);
+                // //stroke(rCol, gCol, bCol);
+                fill(rCol, gCol, bCol);
 
                 // for performance reasons, omitting
                 // radialGradient(
@@ -170,8 +169,7 @@ class Ball {
     }
     // method to show ball(s)
     show() {
-        //noStroke();
-        strokeWeight(3);
+        noStroke();
         //fill(50); this is in 'collide' method now
         for (let r = this.radius; r > 0; --r) {
             ellipse(this.pos.x, this.pos.y, this.radius * 2);
