@@ -9,7 +9,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(windowWidth, windowHeight - 210);
+    createCanvas(windowWidth, windowHeight - 125);
     colorMode(HSB,360,100,100);
     angleMode(DEGREES);
     ctx = canvas.getContext('2d');
@@ -40,10 +40,14 @@ function draw() {
         balls[i].show();
     }
 
-    // ?? show message when no bubbles left
+    // prompt user to add balls when no more on screen
     if ( balls.length === 0 ) {
-        textColor('white');
-        text('press shift!', 200, 400);
+        noStroke();
+        fill(220, 100, 20);
+        textStyle(BOLD);
+        textFont("Trebuchet MS");
+        textSize(48);
+        text('press shift!', (windowWidth/2)-123, 200);
     }
 }
 
@@ -172,6 +176,7 @@ class Ball {
     show() {
         //noStroke();
         strokeWeight(3);
+        noFill();
         //fill(50); this is in 'collide' method now
         for (let r = this.radius; r > 0; --r) {
             ellipse(this.pos.x, this.pos.y, this.radius * 2);
