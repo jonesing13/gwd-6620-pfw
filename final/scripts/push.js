@@ -9,7 +9,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(windowWidth, windowHeight - 125);
+    createCanvas(windowWidth-100, windowHeight - 225);
     colorMode(HSB,360,100,100);
     angleMode(DEGREES);
     ctx = canvas.getContext('2d');
@@ -47,7 +47,7 @@ function draw() {
         textStyle(BOLD);
         textFont("Trebuchet MS");
         textSize(48);
-        text('press shift!', (windowWidth/2)-123, 200);
+        text('press shift!', (windowWidth/2)-180, 200);
     }
 }
 

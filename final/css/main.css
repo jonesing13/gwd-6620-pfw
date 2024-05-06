@@ -21,10 +21,7 @@ body {
     text-align: center;
 }
 
-p:first-of-type {
+h1 {
     padding-top: 2rem;
-}
-
-p:last-of-type {
     padding-bottom: 3rem;
 }
